@@ -13,7 +13,9 @@
 */
 #include <stdio.h>
 
-float bus_controller(void) {
+int bus_controller(struct VEHICLE_STATUS *vehicle_status,double steering_wheel_pos,
+                                                        double gas_pedal_pos,
+                                                        double brake_pedal_pos) {
     
     // Variables for bus controlling
     static int device = 1; // Controls which device should be accessed by controller
@@ -23,23 +25,37 @@ float bus_controller(void) {
     }
     // Choose device to be accessed
     switch (device) {
-        case 1:
+        case 1:             
+            vehicle_status->Comm_bus_address = GAS_PEDAL_SSR_ADDRESS;
+            vehicle_status->Comm_bus_message = 1;
             return GAS_PEDAL_SSR_ADDRESS;
         case 2:
+            vehicle_status->Comm_bus_address = BRAKE_PEDAL_SSR_ADDRESS;
+            vehicle_status->Comm_bus_message = 1;
             return BRAKE_PEDAL_SSR_ADDRESS;
-        case 4:
+        case 4:            
+            vehicle_status->Comm_bus_address = STEERING_SSR_ADDRESS;
+            vehicle_status->Comm_bus_message = 1;
             return STEERING_SSR_ADDRESS;
         case 5:
+            vehicle_status->Comm_bus_address = WHEEL_SSR_ADDRESS;
+            vehicle_status->Comm_bus_message = 1;
             return WHEEL_SSR_ADDRESS;
         case 6:
+            vehicle_status->Comm_bus_address = DIR_ACT_ADDRESS;
+            vehicle_status->Comm_bus_message = steering_wheel_pos;
             return DIR_ACT_ADDRESS;
         case 7:
+            vehicle_status->Comm_bus_address = FUEL_ACT_ADDRESS;
+            vehicle_status->Comm_bus_message = gas_pedal_pos;
             return FUEL_ACT_ADDRESS;
         case 8:
+            vehicle_status->Comm_bus_address = BRAKE_ACT_ADDRESS;
+            vehicle_status->Comm_bus_message = brake_pedal_pos;
             return BRAKE_ACT_ADDRESS;
-        }
     }
 }
+
 
 void main() {
     int address = bus_controller();
