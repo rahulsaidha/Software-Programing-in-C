@@ -13,7 +13,7 @@
 */
 #include <stdio.h>
 
-void controller(void) {
+void controller(struct VEHICLE_STATUS *vehicle_status) {
     // List of system variables that the controller should
     // keep track of. These information are provided by the 
     // devices.
@@ -32,8 +32,8 @@ void controller(void) {
     static int activity; // Controls which ativity should be performed by controller
  
     // Variable for bus reading/writing
-    int Comm_bus_address = vehicle_status.Comm_bus_address;
-    float Comm_bus_message; = vehicle_status.Comm_bus_message;
+    int Comm_bus_address = vehicle_status->Comm_bus_address;
+    float Comm_bus_message; = vehicle_status->Comm_bus_message;
     
     // Treat information and store in the controller's memory
     if (Comm_bus_address == CTRL_ADDRESS) {
@@ -60,10 +60,12 @@ void controller(void) {
             brake_actuator_pos = Comm_bus_message;
             break;
         }
-
     }
 
-    last_bus_address = bus_controller();
+    /* Send Commands to devices */
+    last_bus_address = bus_controller(vehicle_status,steering_wheel_pos,
+                                                    gas_pedal_pos,
+                                                    brake_pedal_pos);
 	
 	
     //watchdog_checker(); - release 2
