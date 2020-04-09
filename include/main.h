@@ -1,5 +1,6 @@
 #include <stdio.h>
-
+#include <math.h>
+#include <time.h>
 // Bus Addresses:
 #define   CTRL_ADDRESS    	    	= 10001010
 #define   GAS_PEDAL_SSR_ADDRESS		= 10000001
