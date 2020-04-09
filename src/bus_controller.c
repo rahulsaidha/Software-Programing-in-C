@@ -1,21 +1,16 @@
-/*Bus Controller
-  Bus Addresses:
-  Controller            = 10001010
-  gas_pedal_sensor      = 10000001
-  brake_pedal_sensor    = 10000010
-  steering_wheel_sensor = 10000011
-  wheel_sensor          = 10000100
-  direction_actuator    = 10000101
-  fuel_actuator         = 10000110
-  brake_actuator        = 10000111
-  range_sensor - release 3
-  vision_sensor - release 3
+/**!
+The function handles the messaging task for the controller;
+In each time is called, it sends a message for a different device;
+The purpose of this task is to ensure that all devices are accessed by the controller.
+Moreover, this function sends the message for the controller.  
+@param[in] steering_wheel_pos Command to direction actuator with the desired position 
+@param[in] gas_pedal_pos Command to fuel actuator with the desired position
+@param[in] brake_pedal_pos Command to brake actuator with the desired position
+@param[out] vehicle_status structure containing the comm-bus
 */
 #include <stdio.h>
 
-int bus_controller(struct VEHICLE_STATUS *vehicle_status,double steering_wheel_pos,
-                                                        double gas_pedal_pos,
-                                                        double brake_pedal_pos) {
+int bus_controller(double steering_wheel_pos,double gas_pedal_pos,double brake_pedal_pos, struct VEHICLE_STATUS *vehicle_status) {
     
     // Variables for bus controlling
     static int device = 1; // Controls which device should be accessed by controller
