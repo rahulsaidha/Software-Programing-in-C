@@ -2,6 +2,8 @@
 
 
 */
+#include "header.h"
+#include "main.h"
 
 void simulator(struct VEHICLE_STATUS *vehicle_status) {
 	static double total_time = 0;
