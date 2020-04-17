@@ -31,11 +31,13 @@ int main(){
     vehicle->fuel_actuator_pos = 10;
     vehicle->brake_actuator_pos = 11;
     int testcase = 0;
-    
+    float expect = 0.0;
+
     for (int i = 0; i<=50;i++){
         //printf("%d\n", testcase);
 	    controller(vehicle);
-	    fprintf(fp,"%d\n",vehicle->Comm_bus_address);
+        fprintf(fp,"Expected: %d | Result: %d\n", testcase, vehicle->Comm_bus_address);
+        fprintf(fp,"Expected: %f | Result: %f\n", expect, vehicle->Comm_bus_message);
     }
     
 	printf("Press any key to finish\n");
