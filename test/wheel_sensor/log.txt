@@ -1,0 +1,12 @@
+
+Testcase 0
+Expected: 10000001 | Result: 10000001
+Expected: 0.000000 | Result: 0.000000
+
+Testcase 1
+Expected: 10001010 | Result: 10001010
+Expected: 2.000000 | Result: 2.000000
+
+Testcase 2
+Expected: 10001010 | Result: 10001010
+Expected: 10.000000 | Result: 10.000000
