@@ -24,11 +24,11 @@ void controller(struct VEHICLE_STATUS *vehicle_status) {
     static int activity; // Controls which ativity should be performed by controller
  
     // Variable for bus reading/writing
-    int Comm_bus_address = vehicle_status->Comm_bus_address;
-    float Comm_bus_message = vehicle_status->Comm_bus_message;
+    float Comm_bus_message;
+    Comm_bus_message = vehicle_status->Comm_bus_message;
     
     // Treat information and store in the controller's memory
-    if (Comm_bus_address == CTRL_ADDRESS) {
+    if (vehicle_status->Comm_bus_address == CTRL_ADDRESS) {
         switch (last_bus_address) {
         case GAS_PEDAL_SSR_ADDRESS:
             gas_pedal_pos = Comm_bus_message;
@@ -43,13 +43,13 @@ void controller(struct VEHICLE_STATUS *vehicle_status) {
             vehicle_wheel_rotation = Comm_bus_message;
             break;
         case DIR_ACT_ADDRESS:
-            direction_actuator_pos = Comm_bus_message;
+            direction_actuator_pos = steering_wheel_pos;
             break;
         case FUEL_ACT_ADDRESS:
-            fuel_actuator_pos = Comm_bus_message;
+            fuel_actuator_pos = gas_pedal_pos;
             break;
         case BRAKE_ACT_ADDRESS:
-            brake_actuator_pos = Comm_bus_message;
+            brake_actuator_pos = brake_pedal_pos;
             break;
         }
     }
