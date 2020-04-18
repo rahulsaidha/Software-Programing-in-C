@@ -125,7 +125,7 @@ int main(){
     fprintf(fp,"\nTestcase 5\n");
     fprintf(fp,"Expected: < %f | Result: %f\n", 10.0, vehicle->gas_pedal_pos);
     fprintf(fp,"Expected: %f | Result: %f\n", 0.0, vehicle->brake_pedal_pos); 
-    fprintf(fp,"Expected: x > 0.0 | Result: %f\n", vehicle->steering_wheel_pos); 
+    fprintf(fp,"Expected: > %f | Result: %f\n", 0.0, vehicle->steering_wheel_pos); 
 
     /* Testcase 6 - The aim is moving forwards, the vehicle is moving in same direction close behind to it, but a little up.
     Speed way higher than expected.
@@ -144,7 +144,7 @@ int main(){
     fprintf(fp,"\nTestcase 6\n");
     fprintf(fp,"Expected: %f | Result: %f\n", 0.0, vehicle->gas_pedal_pos);
     fprintf(fp,"Expected: > %f | Result: %f\n", 0.0, vehicle->brake_pedal_pos); 
-    fprintf(fp,"Expected: x < 0.0 | Result: %f\n", vehicle->steering_wheel_pos);
+    fprintf(fp,"Expected: < %f | Result: %f\n", 0.0, vehicle->steering_wheel_pos);
 
     /* Testcase 7 - The aim is moving forwards, the vehicle is moving in same direction close ahead to it, but a little up.
     Expected results: gas pedal 0, steering wheel decrease, brake pedal = increase.
@@ -203,10 +203,10 @@ int main(){
     /* Testcase 10 - The aim is moving forwards, the vehicle is moving in opposite direction close ahead to it.
     Expected results: gas pedal 0, steering wheel decrease, brake pedal irrelevant.
     */
-    vehicle->vehicle_position_X = 100.1;
+    vehicle->vehicle_position_X = 95.1;
     vehicle->vehicle_position_Y = 20.0;
     driver_attitude(time_sampling,trjc,vehicle);
-    vehicle->vehicle_position_X = 100.0;
+    vehicle->vehicle_position_X = 95.0;
     vehicle->vehicle_position_Y = 20.0;
     vehicle->vehicle_speed = 10.0;
     vehicle->gas_pedal_pos = 10.0;

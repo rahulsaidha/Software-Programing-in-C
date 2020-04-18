@@ -22,12 +22,12 @@ Expected: x < 0.0 | Result: -0.007859
 Testcase 5
 Expected: < 10.000000 | Result: 9.999000
 Expected: 0.000000 | Result: 0.000000
-Expected: x > 0.0 | Result: 0.000826
+Expected: > 0.000000 | Result: 0.000826
 
 Testcase 6
 Expected: 0.000000 | Result: 0.000000
 Expected: > 0.000000 | Result: 0.021000
-Expected: x < 0.0 | Result: -0.000800
+Expected: < 0.000000 | Result: -0.000800
 
 Testcase 7
 Expected: 0.000000 | Result: 0.000000
@@ -47,4 +47,4 @@ Expected: 0.000000 | Result: 0.000000
 Testcase 10
 Expected: 10.000000 | Result: 10.000000
 Expected: 0.000000 | Result: 0.000000
-Expected: < 0.000000 | Result: -0.015708
+Expected: < 0.000000 | Result: 0.015707
