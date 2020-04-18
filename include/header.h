@@ -18,6 +18,7 @@ struct VEHICLE_STATUS {
     double vehicle_wheel_rotation;
     double vehicle_position_X;
     double vehicle_position_Y;
+    double vehicle_speed;
     double motor_rotation;
     double gas_pedal_pos;
     double brake_pedal_pos;
