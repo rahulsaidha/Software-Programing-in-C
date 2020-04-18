@@ -123,7 +123,6 @@ void driver_attitude(double time_sampling,
     vehicle_status->brake_pedal_pos = brake;
     vehicle_status->gas_pedal_pos = accel;
     /* Orientation */
-    printf("%f\n", error_aim);
     double steering = vehicle_status->steering_wheel_pos;
     steering = steering + ATT_REACT*error_aim*time_sampling;
 	/* limits the action of the steering wheel*/
