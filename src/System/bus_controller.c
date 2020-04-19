@@ -13,9 +13,9 @@ Moreover, this function sends the message for the controller.
 int bus_controller(double steering_wheel_pos,double gas_pedal_pos,double brake_pedal_pos, struct VEHICLE_STATUS *vehicle_status) {
     
     // Variables for bus controlling
-    static int device = 1; // Controls which device should be accessed by controller
+    static int device = 0; // Controls which device should be accessed by controller
     device++;
-    if (device > 9) {
+    if (device >= 8) {
         device = 1;
     }
     // Choose device to be accessed
@@ -26,25 +26,25 @@ int bus_controller(double steering_wheel_pos,double gas_pedal_pos,double brake_p
             return GAS_PEDAL_SSR_ADDRESS;
         case 2:
             vehicle_status->Comm_bus_address = BRAKE_PEDAL_SSR_ADDRESS;
-            vehicle_status->Comm_bus_message = 1;
+            vehicle_status->Comm_bus_message = 1.0;
             return BRAKE_PEDAL_SSR_ADDRESS;
-        case 4:            
+        case 3:            
             vehicle_status->Comm_bus_address = STEERING_SSR_ADDRESS;
-            vehicle_status->Comm_bus_message = 1;
+            vehicle_status->Comm_bus_message = 1.0;
             return STEERING_SSR_ADDRESS;
-        case 5:
+        case 4:
             vehicle_status->Comm_bus_address = WHEEL_SSR_ADDRESS;
-            vehicle_status->Comm_bus_message = 1;
+            vehicle_status->Comm_bus_message = 1.0;
             return WHEEL_SSR_ADDRESS;
-        case 6:
+        case 5:
             vehicle_status->Comm_bus_address = DIR_ACT_ADDRESS;
             vehicle_status->Comm_bus_message = steering_wheel_pos;
             return DIR_ACT_ADDRESS;
-        case 7:
+        case 6:
             vehicle_status->Comm_bus_address = FUEL_ACT_ADDRESS;
             vehicle_status->Comm_bus_message = gas_pedal_pos;
             return FUEL_ACT_ADDRESS;
-        case 8:
+        case 7:
             vehicle_status->Comm_bus_address = BRAKE_ACT_ADDRESS;
             vehicle_status->Comm_bus_message = brake_pedal_pos;
             return BRAKE_ACT_ADDRESS;
