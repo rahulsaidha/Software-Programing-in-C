@@ -1,33 +1,26 @@
-#include <stdio.h>
-#include <math.h>
-#include <time.h>
-// Bus Addresses:
-#define   CTRL_ADDRESS    	    	= 10001010
-#define   GAS_PEDAL_SSR_ADDRESS		= 10000001
-#define   BRAKE_PEDAL_SSR_ADDRESS	= 10000010
-#define   STEERING_SSR_ADDRESS    	= 10000011
-#define   WHEEL_SSR_ADDRESS         = 10000100
-#define   DIR_ACT_ADDRESS			= 10000101
-#define   FUEL_ACT_ADDRESS			= 10000110
-#define   BRAKE_ACT_ADDRESS			= 10000111
-
-#define PI 3.142
-
-struct VEHICLE_STATUS {
-    double vehicle_wheel_angle;
-    double vehicle_wheel_rotation;
-    double vehicle_position_X;
-    double vehicle_position_Y;
-    double motor_rotation;
-    double gas_pedal_pos;
-    double brake_pedal_pos;
-    double steering_wheel_pos;
-    double direction_actuator_pos;
-    double fuel_actuator_pos;
-    double brake_actuator_pos;
-    double range_sensor_val;
-    double vision_system_val;
-
-	int Comm_bus_address;
-    float Comm_bus_message;
-}
+/*
+void controller(struct VEHICLE_STATUS *vehicle_status);
+void gas_pedal_sensor(struct VEHICLE_STATUS *vehicle_status);
+void brake_pedal_sensor(struct VEHICLE_STATUS *vehicle_status);
+void steering_wheel_sensor(struct VEHICLE_STATUS *vehicle_status);
+void wheel_sensor(struct VEHICLE_STATUS *vehicle_status);
+void direction_actuator(struct VEHICLE_STATUS *vehicle_status);
+void fuel_actuator(struct VEHICLE_STATUS *vehicle_status);
+void brake_actuator(struct VEHICLE_STATUS *vehicle_status);
+    //range_sensor(vehicle_status); release 3
+    //vision_sensor(vehicle_status); release 3
+*/
+double differential_time(void);
+void vehicle_angle(double velocity, 
+					double time_sampling, 
+					struct VEHICLE_STATUS* vehicle);
+double vehicle_velocity(double time_sampling, struct VEHICLE_STATUS* vehicle);
+void position_integration(double angle, 
+							double velocity, 
+							double time,
+							struct VEHICLE_STATUS* vehicle);
+void driver_attitude(double time_sampling, 
+                    FILE *trjc, 
+                    struct VEHICLE_STATUS *vehicle_status);
+    // environment_status(vehicle_status); release 3
+void information_display(double time, struct VEHICLE_STATUS* vehicle);
