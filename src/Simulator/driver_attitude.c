@@ -15,9 +15,9 @@ driver_attitude
 #include <string.h>
 
 #define SPEED_TOLERANCE 1.15 /* Threshold for brake */
-#define SPEED_REACT_A 0.1 /* How agressive it accelerates */
-#define SPEED_REACT_B 0.7 /* How agressive it brakes */
-#define ATT_REACT 0.5 /* How fast steering wheel moves */
+#define SPEED_REACT_A 1.0 /* How agressive it accelerates */
+#define SPEED_REACT_B 7.0 /* How agressive it brakes */
+#define ATT_REACT 5.0 /* How fast steering wheel moves */
 
 void driver_attitude(double time_sampling, 
                     FILE *trjc, 
