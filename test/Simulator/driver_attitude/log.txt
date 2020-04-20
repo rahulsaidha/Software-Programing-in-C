@@ -1,0 +1,50 @@
+
+Testcase 1
+Expected: x > 0.0 | Result: 0.100000
+Expected: 0.000000 | Result: 0.000000
+Expected: 0.000000 | Result: 0.000000
+
+Testcase 2
+Expected: 0.000000 | Result: 0.000000
+Expected: 0.000000 | Result: 0.000000
+Expected: 0.000000 | Result: 0.000000
+
+Testcase 3
+Expected: 0.000000 | Result: 0.000000
+Expected: 0.000000 | Result: 0.000000
+Expected: x > 0.0 | Result: 0.078589
+
+Testcase 4
+Expected: 0.000000 | Result: 0.000000
+Expected: 0.000000 | Result: 0.000000
+Expected: x < 0.0 | Result: -0.078589
+
+Testcase 5
+Expected: < 10.000000 | Result: 9.990000
+Expected: 0.000000 | Result: 0.000000
+Expected: > 0.000000 | Result: 0.008257
+
+Testcase 6
+Expected: 0.000000 | Result: 0.000000
+Expected: > 0.000000 | Result: 0.210000
+Expected: < 0.000000 | Result: -0.007996
+
+Testcase 7
+Expected: 0.000000 | Result: 0.000000
+Expected: > 0.000000 | Result: 0.070000
+Expected: < 0.000000 | Result: -0.143532
+
+Testcase 8
+Expected: 10.000000 | Result: 10.000000
+Expected: 0.000000 | Result: 0.000000
+Expected: < 0.000000 | Result: -0.156047
+
+Testcase 9
+Expected: 10.000000 | Result: 10.000000
+Expected: 0.000000 | Result: 0.000000
+Expected: 0.000000 | Result: 0.000000
+
+Testcase 10
+Expected: 10.000000 | Result: 10.000000
+Expected: 0.000000 | Result: 0.000000
+Expected: < 0.000000 | Result: -0.157080
