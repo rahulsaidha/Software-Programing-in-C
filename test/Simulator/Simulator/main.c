@@ -3,6 +3,12 @@
 #include <string.h>
 #include <time.h>
 
+//#ifdef _WIN32
+//#include <Windows.h>
+//#else
+//#include <unistd.h>
+//#endif
+
 void simulator(FILE *trjc, struct VEHICLE_STATUS *vehicle_status) {
 
     static double total_time = 0;
@@ -10,14 +16,21 @@ void simulator(FILE *trjc, struct VEHICLE_STATUS *vehicle_status) {
     time_sampling = differential_time();
     total_time += time_sampling;
 
-    double angle;
-    double velocity;
-    velocity = vehicle_velocity(time_sampling, vehicle_status);
-    angle = vehicle_angle(velocity, time_sampling, vehicle_status);
-    position_integration(angle, velocity, time_sampling, vehicle_status);
-    driver_attitude(0.01, trjc, vehicle_status);
-    // environment_status(vehicle_status); release 3
-    information_display(total_time, vehicle_status); 
+    vehicle_velocity(time_sampling, vehicle_status);
+    vehicle_angle(time_sampling, vehicle_status);
+    position_integration(time_sampling, vehicle_status);
+
+    /* Input time sampling = 0.01;
+    To match the input sampling time with the current time, the new input should be called only
+    once per time sampling = 0.01.
+    */
+    static int k = 0;
+    if (total_time > 0.01*k){
+        driver_attitude(0.01, trjc, vehicle_status);
+        // environment_status(vehicle_status); release 3
+        information_display(total_time, vehicle_status); 
+        k++;
+    }
 }
 /*
 void system(struct VEHICLE_STATUS *vehicle_status) {
@@ -57,10 +70,8 @@ int main(void)
         return 1;
     }
 
-    vehicle->vehicle_wheel_rotation = 2.0;
     vehicle->vehicle_position_X = 3.0;
     vehicle->vehicle_position_Y = 4.0;
-    vehicle->motor_rotation = 5.0;
 
     vehicle->gas_pedal_pos = 6.0;
     vehicle->brake_pedal_pos = 7.0;
@@ -77,9 +88,9 @@ int main(void)
     fgets(line,50,trjc); // Remove header from csv
     
     do{
-        fgets(line,50,trjc);
         //system(vehicle);
         simulator(trjc, vehicle);
+        //usleep(10);
     }while(!feof(trjc));
     
     printf("Gas sensor: %f\n", vehicle->gas_pedal_pos);
