@@ -11,14 +11,9 @@ void brake_actuator(struct VEHICLE_STATUS *vehicle_status);
     //vision_sensor(vehicle_status); release 3
 */
 double differential_time(void);
-void vehicle_angle(double velocity, 
-					double time_sampling, 
-					struct VEHICLE_STATUS* vehicle);
-double vehicle_velocity(double time_sampling, struct VEHICLE_STATUS* vehicle);
-void position_integration(double angle, 
-							double velocity, 
-							double time,
-							struct VEHICLE_STATUS* vehicle);
+void vehicle_angle(double time_sampling, struct VEHICLE_STATUS* vehicle);
+void vehicle_velocity(double time_sampling, struct VEHICLE_STATUS* vehicle);
+void position_integration(double time_sampling, struct VEHICLE_STATUS* vehicle);
 void driver_attitude(double time_sampling, 
                     FILE *trjc, 
                     struct VEHICLE_STATUS *vehicle_status);
