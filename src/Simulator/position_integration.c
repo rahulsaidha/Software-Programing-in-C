@@ -1,17 +1,17 @@
 #include "header.h"
 
-void position_integration(double angle, 
-							double velocity, 
-							double time,
-							struct VEHICLE_STATUS* vehicle){	
+void position_integration(double time_sampling, struct VEHICLE_STATUS* vehicle){	
 	
 	double del_X;
 	double del_Y;
+	double angle;
+	double velocity;
 
-	del_X = velocity*cos(angle);
-	del_Y = velocity*sin(angle);
+	angle = vehicle->vehicle_angle;
+	velocity = vehicle->vehicle_speed;
+
+	del_X = velocity*cos(angle)*time_sampling;
+	del_Y = velocity*sin(angle)*time_sampling;
 	vehicle->vehicle_position_X += del_X;
 	vehicle->vehicle_position_Y += del_Y;
-
 	}
-

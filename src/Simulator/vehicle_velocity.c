@@ -1,11 +1,12 @@
 #include "header.h"
 
-#define POWER_MOTOR 0.6
-#define	POWER_BRAKE 1.0
-#define DYNAMIC_FRICTION 1.0
+/* Internal Parameters */
+#define POWER_MOTOR 0.1
+#define	POWER_BRAKE 0.005
+#define DYNAMIC_FRICTION 0.1
 
-double vehicle_velocity(double time_sampling, struct VEHICLE_STATUS* vehicle){
-	double speed = 0;
+void vehicle_velocity(double time_sampling, struct VEHICLE_STATUS* vehicle){
+	double speed;
 	double accel = 0;
 	double motor;
 	double brake;
@@ -13,10 +14,11 @@ double vehicle_velocity(double time_sampling, struct VEHICLE_STATUS* vehicle){
 
 	motor = vehicle->fuel_actuator_pos;
 	brake = vehicle->brake_actuator_pos;
+	speed = vehicle->vehicle_speed;
 
 	/* Vehicle's dynamic equation */
-	accel = motor*POWER_MOTOR - brake*POWER_BRAKE - DYNAMIC_FRICTION*speed;
+	accel = motor*POWER_MOTOR - brake*POWER_BRAKE*speed - DYNAMIC_FRICTION*speed;
 	speed += accel*time_sampling;
 
-	return speed;																											
+	vehicle->vehicle_speed = speed;																											
 	}

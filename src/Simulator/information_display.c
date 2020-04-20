@@ -15,8 +15,8 @@ void information_display(double time, struct VEHICLE_STATUS* vehicle){
 	printf("                                \n");	
 	printf("--------Vehicle Status----------\n");
 	printf("________________________________\n");
-	printf("Motor Rotation: 	    %0.2f\n", vehicle->motor_rotation);
-	printf("Wheel Rotation: 	    %0.2f\n", vehicle->vehicle_wheel_rotation);
+	printf("Vehicle Angle: 	    	    %0.2f\n", vehicle->vehicle_angle);
+	printf("Vehicle Speed: 	    	    %0.2f\n", vehicle->vehicle_speed);
 	printf("Gas Pedal Position: 	    %0.2f\n", vehicle->gas_pedal_pos);
 	printf("Fuel Actuator Pos: 	    %0.2f\n", vehicle->fuel_actuator_pos);
 	printf("Brake Pedal Position: 	    %0.2f\n", vehicle->brake_pedal_pos);
