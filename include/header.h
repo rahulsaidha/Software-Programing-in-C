@@ -11,13 +11,15 @@
 #define   FUEL_ACT_ADDRESS			10000110
 #define   BRAKE_ACT_ADDRESS			10000111
 
-#define PI 3.1415 
+#ifndef PI 
+#define PI 3.14159265358979323846
+#endif
 
 struct VEHICLE_STATUS {
     double vehicle_wheel_angle;
-    double vehicle_wheel_rotation;
     double vehicle_position_X;
     double vehicle_position_Y;
+    double vehicle_angle;
     double vehicle_speed;
     double motor_rotation;
     double gas_pedal_pos;
