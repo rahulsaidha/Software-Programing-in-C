@@ -1,12 +1,12 @@
 #include "header.h"
 
-void information_display(char *line, struct VEHICLE_STATUS* vehicle){
+void information_display(double time, struct VEHICLE_STATUS* vehicle){
 	fseek(stdout, 0 , SEEK_SET);
 	printf("\e[1;1H\e[2J");
 
 	printf("--------Vehicle Simulator-------\n");
 	printf("________________________________\n");
-	printf("Time: %s\n", line);
+	printf("Time: %f\n", time);
 	printf("                                \n");
 	printf("--------Vehicle Position--------\n");
 	printf("________________________________\n");
