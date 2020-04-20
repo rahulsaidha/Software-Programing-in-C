@@ -1,16 +1,9 @@
 /*Controller
-  Bus Addresses:
-  Controller            = 10001010
-  gas_pedal_sensor      = 10000001
-  brake_pedal_sensor    = 10000010
-  steering_wheel_sensor = 10000011
-  wheel_sensor          = 10000100
-  direction_actuator    = 10000101
-  fuel_actuator         = 10000110
-  brake_actuator        = 10000111
-  range_sensor - release 3
-  vision_sensor - release 3
+  
 */
+#include "header.h"
+
+int bus_controller(double steering_wheel_pos, double gas_pedal_pos, double brake_pedal_pos, struct VEHICLE_STATUS *vehicle_status);
 
 void controller(struct VEHICLE_STATUS *vehicle_status) {
     // List of system variables that the controller should
@@ -31,11 +24,11 @@ void controller(struct VEHICLE_STATUS *vehicle_status) {
     static int activity; // Controls which ativity should be performed by controller
  
     // Variable for bus reading/writing
-    int Comm_bus_address = vehicle_status->Comm_bus_address;
-    float Comm_bus_message; = vehicle_status->Comm_bus_message;
+    float Comm_bus_message;
+    Comm_bus_message = vehicle_status->Comm_bus_message;
     
     // Treat information and store in the controller's memory
-    if (Comm_bus_address == CTRL_ADDRESS) {
+    if (vehicle_status->Comm_bus_address == CTRL_ADDRESS) {
         switch (last_bus_address) {
         case GAS_PEDAL_SSR_ADDRESS:
             gas_pedal_pos = Comm_bus_message;
@@ -50,28 +43,25 @@ void controller(struct VEHICLE_STATUS *vehicle_status) {
             vehicle_wheel_rotation = Comm_bus_message;
             break;
         case DIR_ACT_ADDRESS:
-            direction_actuator_pos = Comm_bus_message;
+            direction_actuator_pos = steering_wheel_pos;
             break;
         case FUEL_ACT_ADDRESS:
-            fuel_actuator_pos = Comm_bus_message;
+            fuel_actuator_pos = gas_pedal_pos;
             break;
         case BRAKE_ACT_ADDRESS:
-            brake_actuator_pos = Comm_bus_message;
+            brake_actuator_pos = brake_pedal_pos;
             break;
         }
     }
 
     /* Send Commands to devices */
-    last_bus_address = bus_controller(vehicle_status,steering_wheel_pos,
-                                                    gas_pedal_pos,
-                                                    brake_pedal_pos);
-	
+    
+    last_bus_address = bus_controller(steering_wheel_pos,
+                                      gas_pedal_pos,
+                                      brake_pedal_pos, 
+                                      vehicle_status);
 	
     //watchdog_checker(); - release 2
     //health_checker(); - release 2
        
-}
-
-void main() {
-    controller();
 }
