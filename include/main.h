@@ -19,5 +19,5 @@ void driver_attitude(double time_sampling,
                     FILE *dr,
                     struct VEHICLE_STATUS *vehicle_status);
     // environment_status(vehicle_status); release 3
-void information_display(double time, double tic, struct VEHICLE_STATUS* vehicle, FILE* fp);
+void information_display(double time, struct VEHICLE_STATUS* vehicle, FILE* fp);
 
