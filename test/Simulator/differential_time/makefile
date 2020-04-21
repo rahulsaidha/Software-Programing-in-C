@@ -1,7 +1,7 @@
 CC=g++
 CFLAGS=-std=c++17
 
-INCLUDEHEADER=-I ../../../include
+INCLUDEHEADER=-I ../../include
 
 #CREATE BIN AND BUILD FOLDERS TO SAVE THE COMPILED FILES DURING RUNTIME
 bin_folder := $(shell mkdir -p bin)
@@ -14,7 +14,7 @@ all: Simulator run clean
 main.o:
 	$(CC) -g -c $(CFLAGS) $(INCLUDEHEADER) main.c -o build/main.o
 differential_time.o: 
-	$(CC) -g -c $(CFLAGS) $(INCLUDEHEADER) ../../../src/Simulator/differential_time.c -o build/differential_time.o
+	$(CC) -g -c $(CFLAGS) $(INCLUDEHEADER) ../../src/Simulator/differential_time.c -o build/differential_time.o
 
 #TARGET TO COMPILE ONLY ABP SIMULATOR
 Simulator: main.o differential_time.o

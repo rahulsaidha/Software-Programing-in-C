@@ -1,12 +1,14 @@
 #include "header.h"
-#include "main.h"
 #include <string.h>
 #include <time.h>
+
 #ifdef _WIN32
 #include <Windows.h>
 #else
 #include <unistd.h>
 #endif
+
+double differential_time(void);
 
 void print_results(FILE* fp,    int testcase, 
                                 char comparison_1,                                
@@ -38,40 +40,53 @@ int main(void)
         return 1;
     }
 
-    vehicle->vehicle_position_X = 0.0;
-    vehicle->vehicle_position_Y = 0.0;
-    vehicle->motor_rotation = 0.0;
-
-    vehicle->gas_pedal_pos = 0.0;
-    vehicle->brake_pedal_pos = 0.0;
-    vehicle->steering_wheel_pos = 0.0;
-
-    vehicle->direction_actuator_pos = 0.0;
-    vehicle->fuel_actuator_pos = 0.0;
-    vehicle->brake_actuator_pos = 0.0;
+    struct timespec tim;
+    tim.tv_sec = 0.0;
+    tim.tv_nsec = (1000000000.0)*0.999;
 
     int testcase = 0;
     double expect = 0.0;
     double time_sampling;
-    double time;
 
-    /* Testcase 1 - Return the time in the first call; 
-    Expected: zero */      
-    time_sampling = differential_time();  
+    /* Testcase 1 - Zero time on initialization;
+    Expected: zero time */
+    time_sampling = differential_time();
     print_results(fp,1,'=',0.0,time_sampling,'=',0.0,0.0);
 
-    /* Testcase 2 - Return the desired time; 
-    Expected: 2 seconds */      
-    time_sampling = differential_time();  
-    sleep(2);
+    /* Testcase 2 - Time in double execution; 
+    Expected: close to zero time */
     time_sampling = differential_time();
-    print_results(fp,2,'=',2.0,time_sampling,'=',0.0,0.0);
-    
-    /* Testcase 3 - Return 0 time; 
-    Expected: zero */      
-    time_sampling = differential_time();  
     time_sampling = differential_time();
-    print_results(fp,3,'=',0.0,time_sampling,'=',0.0,0.0);
+    print_results(fp,2,'~',0.0,time_sampling,'=',0.0,0.0);
+
+    /* Testcase 3 - Time after 0.01s of sleep; 
+    Expected: 0.01 seconds passed */
+    time_sampling = differential_time();
+    tim.tv_sec = 0.0;
+    tim.tv_nsec = (1000000000.0)*0.01;
+    nanosleep(&tim, NULL);
+    time_sampling = differential_time();
+    print_results(fp,3,'=',0.01,time_sampling,'=',0.0,0.0);
+
+    /* Testcase 4 - Time after 0.99s of sleep; 
+    Expected: 0.01 seconds passed */
+    time_sampling = differential_time();
+    tim.tv_sec = 0.0;
+    tim.tv_nsec = (1000000000.0)*0.99;
+    nanosleep(&tim, NULL);
+    time_sampling = differential_time();
+    print_results(fp,4,'=',0.99,time_sampling,'=',0.0,0.0);
+
+    /* Testcase 10 - Checking consistency over several calls; 
+    Expected: 0.01 seconds passed */
+    time_sampling = differential_time();
+    tim.tv_sec = 0.0;
+    tim.tv_nsec = (1000000000.0)*0.01;
+    for (int i=0;i<50;i++){
+        nanosleep(&tim, NULL);
+        time_sampling = differential_time();
+        print_results(fp,10,'=',0.01,time_sampling,'=',0.0,0.0);
+    }
 
     printf("Press any key to finish\n");
     getchar();
