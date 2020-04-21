@@ -1,3 +1,10 @@
+/** 
+* The function performsan automatic brake and it detects any danger ahead. It will send a brake command to brake actuator.
+*param[in]  : range sensor measurement, vehicle speed
+*param[out]: command to device
+
+*/
+
 #include "header.h"
 
 double differential_time(int *t)																	
