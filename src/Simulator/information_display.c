@@ -7,13 +7,14 @@
 
 #include "header.h"
 
-void information_display(double time, double tic, struct VEHICLE_STATUS* vehicle, FILE* fp){
+void information_display(double time, struct VEHICLE_STATUS* vehicle, FILE* fp){
 	fseek(stdout, 0 , SEEK_SET);
 	printf("\e[1;1H\e[2J");
 
+
 	printf("--------Vehicle Simulator-------\n");
 	printf("________________________________\n");
-	printf("Time: %0.2f - %0.4f\n", time, tic);
+	printf("Time: %0.4f\n", time);
 	printf("                                \n");
 	printf("--------Vehicle Position--------\n");
 	printf("________________________________\n");
@@ -32,7 +33,7 @@ void information_display(double time, double tic, struct VEHICLE_STATUS* vehicle
 	printf("Direction Actuator Pos:     %0.2f\n", vehicle->direction_actuator_pos);
 	printf("Wheel Angle: 	            %0.2f\n", vehicle->vehicle_wheel_angle);
 	printf("                                \n");
-
+	
 	/* Save Data in .csv */
 	fprintf(fp,"%f,", time);
 	fprintf(fp,"%f,", vehicle->vehicle_position_X);

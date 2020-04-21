@@ -8,7 +8,7 @@ bin_folder := $(shell mkdir -p bin)
 build_folder := $(shell mkdir -p build)
 
 #TARGET TO COMPILE EVERYTHING (ABP SIMULATOR + TESTS TOGETHER)
-all: alltogether
+all: alltogether clean
 
 #TARGET TO COMPILE ALL THE TESTS TOGETHER (NOT SIMULATOR)
 main.o:

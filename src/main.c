@@ -21,10 +21,11 @@ void simulator(FILE *trjc, FILE *dr, struct VEHICLE_STATUS *vehicle_status, FILE
     static int k = 0;
     double tic;
     tic = (0.01*((double)k));
-    if (total_time >= tic){
+    if (total_time >= 0.01*((double)k)){
         driver_attitude(0.01, total_time, trjc, dr, vehicle_status);
-        // environment_status(vehicle_status); release 3
-        information_display(total_time, tic, vehicle_status, fp); 
+        if (k%100 == 0){
+            information_display(total_time, vehicle_status, fp); 
+        }
         k++;
     }
 }
@@ -79,8 +80,8 @@ int main(void)
     fprintf(fp,"Time,X,Y,V_angle,V_speed,Gas_pedal,Fuel_act,Brake_pedal,Brake_act,Steering_wheel,Direction_act,Wheel_angle\n");
     fprintf(dr,"Time,Head,Head_aim,Head_desired\n");
 
-    char line[50];
-    fgets(line,50,trjc); // Remove header from csv
+    char line[60];
+    fgets(line,60,trjc); // Remove header from csv
     
     do{
         system(vehicle);
