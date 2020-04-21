@@ -1,3 +1,10 @@
+/** 
+* The function integrates the velocity into position.
+* @param[in]: time_sampling differential time for integrating the position 
+* @param[in]: *vehicle vehicle angle and velocity
+* @param[out]: *vehicle position in (x,y).
+*/
+
 #include "header.h"
 
 void position_integration(double time_sampling, struct VEHICLE_STATUS* vehicle){	

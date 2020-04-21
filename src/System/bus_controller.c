@@ -1,12 +1,12 @@
-/**!
-The function handles the messaging task for the controller;
-In each time is called, it sends a message for a different device;
-The purpose of this task is to ensure that all devices are accessed by the controller.
-Moreover, this function sends the message for the controller.  
-@param[in] steering_wheel_pos Command to direction actuator with the desired position 
-@param[in] gas_pedal_pos Command to fuel actuator with the desired position
-@param[in] brake_pedal_pos Command to brake actuator with the desired position
-@param[out] vehicle_status structure containing the comm-bus
+/**
+* The function handles the messaging task for the controller;
+* In each time is called, it sends a message for a different device;
+* The purpose of this task is to ensure that all devices are accessed by the controller.
+* Moreover, this function sends the message for the controller.  
+* @param[in] steering_wheel_pos Command to direction actuator with the desired position 
+* @param[in] gas_pedal_pos Command to fuel actuator with the desired position
+* @param[in] brake_pedal_pos Command to brake actuator with the desired position
+* @param[out] vehicle_status structure containing the comm-bus.
 */
 #include "header.h"
 
