@@ -8,19 +8,17 @@ void simulator(FILE *trjc, FILE *dr, struct VEHICLE_STATUS *vehicle_status, FILE
     static double total_time = 0;
     double time_sampling;
     time_sampling = differential_time();
-    total_time += 0.01;
+    total_time += time_sampling;
 
-    vehicle_velocity(0.01, vehicle_status);
-    vehicle_angle(0.01, vehicle_status);
-    position_integration(0.01, vehicle_status);
+    vehicle_velocity(time_sampling, vehicle_status);
+    vehicle_angle(time_sampling, vehicle_status);
+    position_integration(time_sampling, vehicle_status);
 
     /* Input time sampling = 0.01;
     To match the input sampling time with the current time, the new input should be called only
     once per time sampling = 0.01.
     */
     static int k = 0;
-    double tic;
-    tic = (0.01*((double)k));
     if (total_time >= 0.01*((double)k)){
         driver_attitude(0.01, total_time, trjc, dr, vehicle_status);
         if (k%100 == 0){
