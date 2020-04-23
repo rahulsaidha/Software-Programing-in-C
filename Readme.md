@@ -1,11 +1,9 @@
 # **SOFTWARE CONTROLLER FOR VEHICLES**
----
+
 ## Carleton University
----
+
 ### Authors
 [Pedro Coser](https://github.com/PCoser)
-[Rahul Saidha](https://github.com/rahulsaidha)
-[Tarun Dwivedi](https://github.com/Tarund95)
 [Unnati Thakkar](https://github.com/unnati9979)
 
 ### Table of Content
@@ -121,15 +119,37 @@ Trajectory.csv
 ### Steps to Run Simulation
 
 1. Requirements:
- - Windows 10;
- - Cygwin for compiling;
+ - Windows 10 or Unix;
+ - Cygwin for compiling if in Windows;
+ - GCC Compiler
 
-2. Download:
+2. Download:  
+Copy the repository in your system.
 
+3. Install:  
+On Cygwin terminal or Unix point to the right directory and type
+	
+  ```
+  make compile
+  ```
 
-3. Install:
+4. How to run:
 
-4. Run:
+  ```
+  make run
+  ```
+
+5. Unit testing:
+  ```
+  make testing
+  ```
+  The log files will be stored in the folder /test.
+  For more information refer the Developer's Manual [here](https://github.com/PCoser/Software-Programing-in-C/doc/Developer_manual.md)
 
 ### More Information
 
+The user manual is available [here](https://github.com/PCoser/Software-Programing-in-C/doc/User_manual.md)
+
+The developer manual is available [here](https://github.com/PCoser/Software-Programing-in-C/doc/Developer_manual.md)
+
+For more details about the implementation refer [here](https://github.com/PCoser/Software-Programing-in-C/doc/Doxygen) the Doxygen documentation.
