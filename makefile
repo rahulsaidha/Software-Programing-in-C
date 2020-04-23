@@ -7,10 +7,11 @@ INCLUDEHEADER=-I include
 bin_folder := $(shell mkdir -p bin)
 build_folder := $(shell mkdir -p build)
 
-#TARGET TO COMPILE EVERYTHING (ABP SIMULATOR + TESTS TOGETHER)
-all: alltogether clean
+#TARGET TO COMPILE EVERYTHING
 
-#TARGET TO COMPILE ALL THE TESTS TOGETHER (NOT SIMULATOR)
+all: compile run clean
+
+#TARGET TO COMPILE ALL THE TESTS TOGETHER
 main.o:
 	$(CC) -g -c $(CFLAGS) $(INCLUDEHEADER) src/main.c -o build/main.o
 differential_time.o: 
@@ -44,17 +45,21 @@ fuel_actuator.o:
 brake_actuator.o: 
 	$(CC) -g -c $(CFLAGS) $(INCLUDEHEADER) src/System/brake_actuator.c -o build/brake_actuator.o
 
-#TARGET TO COMPILE ONLY ABP SIMULATOR
+#TARGET TO COMPILE ONLY SIMULATOR
 Simulator: main.o differential_time.o vehicle_angle.o vehicle_velocity.o position_integration.o driver_attitude.o information_display.o
-	$(CC) -g -o test.exe build/main.o build/differential_time.o build/vehicle_angle.o build/vehicle_velocity.o build/position_integration.o build/driver_attitude.o build/information_display.o
+	$(CC) -g -o test.exe build/main.o build/differential_time.o build/vehicle_angle.o build/vehicle_velocity.o build/position_integration.o build/driver_attitude.o build/information_display.o build/controller.o build/bus_controller.o build/gas_pedal_sensor.o build/brake_pedal_sensor.o build/steering_wheel_sensor.o build/wheel_sensor.o build/direction_actuator.o build/fuel_actuator.o build/brake_actuator.o
 
-#TARGET TO COMPILE ONLY ABP SIMULATOR
+#TARGET TO COMPILE ONLY SYSTEM
 System: main.o controller.o gas_pedal_sensor.o brake_pedal_sensor.o steering_wheel_sensor.o wheel_sensor.o direction_actuator.o fuel_actuator.o brake_actuator.o
-	$(CC) -g -o test.exe build/main.o build/controller.o build/bus_controller.o build/gas_pedal_sensor.o build/brake_pedal_sensor.o build/steering_wheel_sensor.o build/wheel_sensor.o build/direction_actuator.o build/fuel_actuator.o build/brake_actuator.o
+	$(CC) -g -o test.exe build/main.o build/differential_time.o build/vehicle_angle.o build/vehicle_velocity.o build/position_integration.o build/driver_attitude.o build/information_display.o build/controller.o build/bus_controller.o build/gas_pedal_sensor.o build/brake_pedal_sensor.o build/steering_wheel_sensor.o build/wheel_sensor.o build/direction_actuator.o build/fuel_actuator.o build/brake_actuator.o
 
 #TARGET TO COMPILE ALL
-alltogether: main.o differential_time.o vehicle_angle.o vehicle_velocity.o position_integration.o driver_attitude.o information_display.o controller.o gas_pedal_sensor.o brake_pedal_sensor.o steering_wheel_sensor.o wheel_sensor.o direction_actuator.o fuel_actuator.o brake_actuator.o
+compile: main.o differential_time.o vehicle_angle.o vehicle_velocity.o position_integration.o driver_attitude.o information_display.o controller.o gas_pedal_sensor.o brake_pedal_sensor.o steering_wheel_sensor.o wheel_sensor.o direction_actuator.o fuel_actuator.o brake_actuator.o
 	$(CC) -g -o test.exe build/main.o build/differential_time.o build/vehicle_angle.o build/vehicle_velocity.o build/position_integration.o build/driver_attitude.o build/information_display.o build/controller.o build/bus_controller.o build/gas_pedal_sensor.o build/brake_pedal_sensor.o build/steering_wheel_sensor.o build/wheel_sensor.o build/direction_actuator.o build/fuel_actuator.o build/brake_actuator.o
+
+#RUN SIMULATION
+run:
+	./test.exe
 
 #CLEAN COMMANDS
 clean: 
