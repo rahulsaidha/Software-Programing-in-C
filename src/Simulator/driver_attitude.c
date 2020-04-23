@@ -21,10 +21,10 @@
 #define SPEED_FACTOR 0.1 // Speed_factor sensitivity
 #endif
 #ifndef SPEED_REACT_A_P
-#define SPEED_REACT_A_P 0.01 // How agressive it accelerates proportional
+#define SPEED_REACT_A_P 0.003 // How agressive it accelerates proportional
 #endif
 #ifndef SPEED_REACT_A_D
-#define SPEED_REACT_A_D 6 // How agressive it accelerates derivative
+#define SPEED_REACT_A_D 25.0 // How agressive it accelerates derivative
 #endif
 #ifndef SPEED_REACT_B
 #define SPEED_REACT_B 0.4 // How agressive it brakes
