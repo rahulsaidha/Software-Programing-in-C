@@ -56,6 +56,10 @@ System: main.o controller.o gas_pedal_sensor.o brake_pedal_sensor.o steering_whe
 alltogether: main.o differential_time.o vehicle_angle.o vehicle_velocity.o position_integration.o driver_attitude.o information_display.o controller.o gas_pedal_sensor.o brake_pedal_sensor.o steering_wheel_sensor.o wheel_sensor.o direction_actuator.o fuel_actuator.o brake_actuator.o
 	$(CC) -g -o test.exe build/main.o build/differential_time.o build/vehicle_angle.o build/vehicle_velocity.o build/position_integration.o build/driver_attitude.o build/information_display.o build/controller.o build/bus_controller.o build/gas_pedal_sensor.o build/brake_pedal_sensor.o build/steering_wheel_sensor.o build/wheel_sensor.o build/direction_actuator.o build/fuel_actuator.o build/brake_actuator.o
 
+#RUN
+run:
+	./test.exe
+
 #CLEAN COMMANDS
 clean: 
 	rm -f bin/* build/*
