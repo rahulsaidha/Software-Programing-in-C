@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <math.h>
 #include <time.h>
+//#include <sys/time.h>
+
 // Bus Addresses:
 #define   CTRL_ADDRESS    	    	10001010
 #define   GAS_PEDAL_SSR_ADDRESS		10000001
@@ -17,6 +19,7 @@
 
 struct VEHICLE_STATUS {
     double vehicle_wheel_angle;
+    double vehicle_wheel_rotation;
     double vehicle_position_X;
     double vehicle_position_Y;
     double vehicle_angle;
