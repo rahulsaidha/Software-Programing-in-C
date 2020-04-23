@@ -148,8 +148,8 @@ On Cygwin terminal or Unix point to the right directory and type
 
 ### More Information
 
-The user manual is available [here](https://github.com/PCoser/Software-Programing-in-C/doc/User_manual.md)
+The user manual is available [here](https://github.com/PCoser/Software-Programing-in-C/blob/master/doc/User_manual.md)
 
-The developer manual is available [here](https://github.com/PCoser/Software-Programing-in-C/doc/Developer_manual.md)
+The developer manual is available [here](https://github.com/PCoser/Software-Programing-in-C/blob/master/doc/Developer%20Manual.md)
 
-For more details about the implementation refer [here](https://github.com/PCoser/Software-Programing-in-C/doc/Doxygen) the Doxygen documentation.
+For more details about the implementation refer [here](https://github.com/PCoser/Software-Programing-in-C/tree/master/doc/Doxygen) the Doxygen documentation.
