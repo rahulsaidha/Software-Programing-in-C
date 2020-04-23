@@ -3,8 +3,7 @@
 #include <string.h>
 #include <stdio.h>
 
-void simulator(FILE *trjc, FILE *dr, 
-                struct VEHICLE_STATUS *vehicle_status, FILE *fp) {
+void simulator(FILE *trjc, struct VEHICLE_STATUS *vehicle_status, FILE *fp){
 
     static double total_time = 0;
     double time_sampling;
@@ -22,7 +21,7 @@ void simulator(FILE *trjc, FILE *dr,
     */
     static int k = 0;
     if (total_time >= 0.01*((double)k)){
-        driver_attitude(0.01, total_time, trjc, dr, vehicle_status);
+        driver_attitude(0.01, total_time, trjc, vehicle_status);
         if (k%100 == 0){
             information_display(total_time, vehicle_status, fp); 
         }
@@ -64,30 +63,19 @@ int main(void)
         return 1;
     }
 
-    // Open Log file
-    FILE *dr;
-    char* filedrive;
-    dr = fopen("drive.csv", "w");
-    if (dr == NULL){
-        printf("Could not open file %s","drive.csv");
-        return 1;
-    }
-
     /* Printing the header of the result in .csv*/
     fprintf(fp,"Time,X,Y,V_angle,V_speed,Gas_pedal,Fuel_act,Brake_pedal,Brake_act,Steering_wheel,Direction_act,Wheel_angle\n");
-    fprintf(dr,"Time,Head,Head_aim,Head_desired\n");
 
     char line[60];
     fgets(line,60,trjc); // Remove header from csv
 
     do{
         system(vehicle);
-        simulator(trjc, dr, vehicle, fp);
+        simulator(trjc, vehicle, fp);
     }while(!feof(trjc));
     
     fclose(fp);
     fclose(trjc);
-    fclose(dr);
     free(vehicle);
     printf("Press any key to finish\n");
     getchar();

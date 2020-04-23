@@ -16,7 +16,6 @@ void position_integration(double time_sampling, struct VEHICLE_STATUS* vehicle);
 void driver_attitude(double time_sampling, 
 					double total_time,
                     FILE *trjc, 
-                    FILE *dr,
                     struct VEHICLE_STATUS *vehicle_status);
     // environment_status(vehicle_status); release 3
 void information_display(double time, struct VEHICLE_STATUS* vehicle, FILE* fp);

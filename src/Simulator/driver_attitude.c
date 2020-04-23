@@ -4,6 +4,10 @@
 * the position (called aim) given by the trajectory file.
 * The aim is the moving position X and Y stored in the file. The function pass 
 * commands to the vehicle that is mimics the behaviour of a driver.
+* @param[in] time_sampling time of each iteration of the input data;
+* @param[in] total_time time from the beggining of the simulation;
+* @param[in] trjc File containing the input data;
+* @param[out] vehicle_status vehicle variables to be changed by the function.
 */
 
 #include "header.h"
@@ -36,7 +40,6 @@
 void driver_attitude(double time_sampling, 
                     double total_time,
                     FILE *trjc, 
-                    FILE *dr,
                     struct VEHICLE_STATUS *vehicle_status){
 
     double time;
@@ -163,10 +166,4 @@ void driver_attitude(double time_sampling,
 		steering = -100;
 	}
 	vehicle_status->steering_wheel_pos = steering;
-
-    fprintf(dr,"%f,", time);
-    fprintf(dr,"%f,", head);
-    fprintf(dr,"%f,", head_aim);
-    fprintf(dr,"%f\n", head_desired);
-
 }
