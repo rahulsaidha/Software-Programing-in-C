@@ -1,19 +1,24 @@
 /**
 * The function handles the messaging task for the controller;
 * In each time is called, it sends a message for a different device;
-* The purpose of this task is to ensure that all devices are accessed by the controller.
-* Moreover, this function sends the message for the controller.  
-* @param[in] steering_wheel_pos Command to direction actuator with the desired position 
+* The purpose of this task is to ensure that all devices 
+* are accessed by the controller. Moreover, this function sends 
+* the message for the controller.  
+* @param[in] steering_wheel_pos Command to direction actuator with the desired
+* position
 * @param[in] gas_pedal_pos Command to fuel actuator with the desired position
 * @param[in] brake_pedal_pos Command to brake actuator with the desired position
 * @param[out] vehicle_status structure containing the comm-bus.
 */
 #include "header.h"
 
-int bus_controller(double steering_wheel_pos,double gas_pedal_pos,double brake_pedal_pos, struct VEHICLE_STATUS *vehicle_status) {
+int bus_controller(double steering_wheel_pos,
+                    double gas_pedal_pos,
+                    double brake_pedal_pos, 
+                    struct VEHICLE_STATUS *vehicle_status) {
     
     // Variables for bus controlling
-    static int device = 0; // Controls which device should be accessed by controller
+    static int device = 0; //Controls which device should be accessed by controller
     device++;
     if (device >= 8) {
         device = 1;

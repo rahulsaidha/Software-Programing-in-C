@@ -6,6 +6,7 @@
 */
 
 #include "header.h"
+#include <math.h>
 
 void position_integration(double time_sampling, struct VEHICLE_STATUS* vehicle){	
 	
@@ -21,4 +22,4 @@ void position_integration(double time_sampling, struct VEHICLE_STATUS* vehicle){
 	del_Y = velocity*sin(angle)*time_sampling;
 	vehicle->vehicle_position_X += del_X;
 	vehicle->vehicle_position_Y += del_Y;
-	}
+}

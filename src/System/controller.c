@@ -1,7 +1,8 @@
 /**
 * The function acts as the controller of the vehicle;
-* The controller does not have access to the vehicle's variables, only to the bus;
-* So it should ask actuators and sensors to perform reads and writes in the vehicle_status.
+* The controller does not have access to the vehicle's variables, 
+* only to the bus; So it should ask actuators and sensors to perform reads and 
+* writes in the vehicle_status.
 * The main task is to ensure that all the devices can communicate to each other; 
 * Other tasks are to check the real-time concerns of the system;
 * such as the execution time and health check.
@@ -32,7 +33,7 @@ void controller(struct VEHICLE_STATUS *vehicle_status) {
 
     /* Variables for system controlling */
     static int last_bus_address;
-    static int activity; // Controls which ativity should be performed by controller
+    static int activity;
  
     /* Variable for bus reading/writing */
     float Comm_bus_message;

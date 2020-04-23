@@ -1,10 +1,12 @@
 /** 
-* The function computes the time differential between the last run and the *end of call of function.
+* The function computes the time differential between the last run and the end
+ of call of function.
 * This function cannot handle times equal or higher than 1.0 second.
 * @param[out]: differential_time time passed from the last call
 */
 
 #include "header.h"
+#include <time.h>
 																	
 double differential_time(void){
 	

@@ -14,7 +14,8 @@
 
 void vehicle_angle(double time_sampling, struct VEHICLE_STATUS* vehicle){
 	vehicle->vehicle_wheel_angle = vehicle->direction_actuator_pos*(PI/200);
-	vehicle->vehicle_angle += vehicle->vehicle_wheel_angle*vehicle->vehicle_speed*BODY_FACTOR*time_sampling;
+	vehicle->vehicle_angle += vehicle->vehicle_wheel_angle*vehicle->vehicle_speed*
+														BODY_FACTOR*time_sampling;
 	/* limits -PI to PI */
 	if(vehicle->vehicle_angle>PI){
 		vehicle->vehicle_angle -= 2*PI;

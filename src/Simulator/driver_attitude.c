@@ -8,15 +8,30 @@
 
 #include "header.h"
 #include <string.h>
+#include <math.h>
+#include <stdio.h>
 
+#ifndef SPEED_TOLERANCE
 #define SPEED_TOLERANCE 1.15 // Threshold for brake
-
-#define DISTANCE_FACTOR 0.03 // distance_factor sensitivity
+#endif
+#ifndef DISTANCE_FACTOR
+#define DISTANCE_FACTOR 1 // distance_factor sensitivity
+#endif
+#ifndef SPEED_FACTOR
 #define SPEED_FACTOR 0.1 // Speed_factor sensitivity
-#define SPEED_REACT_A_P 0.1 // How agressive it accelerates proportional
-#define SPEED_REACT_A_D 0.1 // How agressive it accelerates derivative
-#define SPEED_REACT_B 0.7 // How agressive it brakes
+#endif
+#ifndef SPEED_REACT_A_P
+#define SPEED_REACT_A_P 0.01 // How agressive it accelerates proportional
+#endif
+#ifndef SPEED_REACT_A_D
+#define SPEED_REACT_A_D 6 // How agressive it accelerates derivative
+#endif
+#ifndef SPEED_REACT_B
+#define SPEED_REACT_B 0.4 // How agressive it brakes
+#endif
+#ifndef ATT_REACT
 #define ATT_REACT 0.5 // How fast steering whell moves
+#endif
 
 void driver_attitude(double time_sampling, 
                     double total_time,
@@ -52,6 +67,8 @@ void driver_attitude(double time_sampling,
     static double last_real_Y = 0;
     static double last_desired_X = 0;
     static double last_desired_Y = 0;
+    static double last_distance; // Used to compute the difference for each iter
+    double distance; //How far position is from the goal
     double head; // Actual vehicle orientation
     double head_desired; // Orientation from trajectory
     double head_aim; // Orientation to the goal
@@ -59,7 +76,6 @@ void driver_attitude(double time_sampling,
     double error_Y; // Error in position
     double error_head; // Error in orientation
     double error_aim; // Difference between orientation and aim
-    double distance; //How far position is from the goal
     double steering = vehicle_status->steering_wheel_pos;
     error_X = X - vehicle_status->vehicle_position_X;
     error_Y = Y - vehicle_status->vehicle_position_Y;
@@ -103,7 +119,7 @@ void driver_attitude(double time_sampling,
     double accel = vehicle_status->gas_pedal_pos;
     double brake = vehicle_status->brake_pedal_pos;
     double distance_factor; // Reduce speed when close to goal
-    distance_factor = -(exp(-SPEED_FACTOR*distance)) + 1; 
+    distance_factor = -(exp(-DISTANCE_FACTOR*distance)) + 1; 
     //Brake if vehicle is ahead of the aim
     if((abs(error_head) < 0.17) && (abs(error_aim) > 0.30) && (distance < 10.0)){
     	 accel = 0;
@@ -115,9 +131,10 @@ void driver_attitude(double time_sampling,
     	 brake = brake - SPEED_REACT_B*error_speed*time_sampling;
     }
     else{
-    	 accel = accel*distance_factor + (SPEED_REACT_A_P*distance)*time_sampling;
+    	 accel = accel*distance_factor + (SPEED_REACT_A_P*distance + SPEED_REACT_A_D*(distance-last_distance))*time_sampling;
     	 brake = 0;
     }
+    last_distance = distance;
     //limits
     if (brake>100){
     	brake = 100;
@@ -137,7 +154,7 @@ void driver_attitude(double time_sampling,
     //Orientation
     double speed_factor; // Reduce steering in high speed
     speed_factor = exp(-SPEED_FACTOR*vehicle_status->vehicle_speed); 
-    steering = (error_Y*cos(head) - error_X*sin(head))*speed_factor;
+    steering = (error_Y*cos(head) - error_X*sin(head));
 	//limits
 	if (steering>100){
 		steering = 100;

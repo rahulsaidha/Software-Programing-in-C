@@ -6,11 +6,11 @@
 */ 
 
 #include "header.h"
+#include <stdio.h>
 
 void information_display(double time, struct VEHICLE_STATUS* vehicle, FILE* fp){
 	fseek(stdout, 0 , SEEK_SET);
 	printf("\e[1;1H\e[2J");
-
 
 	printf("--------Vehicle Simulator-------\n");
 	printf("________________________________\n");
