@@ -13,7 +13,7 @@ Results.dropna(inplace=True)
 
 Trajectory = pd.read_csv('Trajectory.csv')
 Drive = pd.read_csv('drive.csv')
-'''
+
 fig, ax = plt.subplots(figsize=(10,8))  # Create a figure and an axes.
 ax.plot(Results[['Time']], Results['Brake_pedal'])  # Plot some data on the axes.
 ax.plot(Results[['Time']], Results['Brake_act'])  # Plot some data on the axes.
@@ -39,7 +39,7 @@ ax.set_ylabel('m/s')  # Add a y-label to the axes.
 ax.set_title("Speed")  # Add a title to the axes.
 ax.legend()  # Add a legend.
 #plt.savefig('Response Time'+version+png)
-
+'''
 fig, ax = plt.subplots(figsize=(10,8))  # Create a figure and an axes.
 ax.plot(Results[['Time']], Results['X'])  # Plot some data on the axes.
 ax.plot(Trajectory[['Time']], Trajectory['X'])  # Plot some data on the axes.

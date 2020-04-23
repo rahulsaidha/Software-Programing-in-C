@@ -1,9 +1,10 @@
 #include "header.h"
 #include "main.h"
 #include <string.h>
-#include <time.h>
+#include <stdio.h>
 
-void simulator(FILE *trjc, FILE *dr, struct VEHICLE_STATUS *vehicle_status, FILE *fp) {
+void simulator(FILE *trjc, FILE *dr, 
+                struct VEHICLE_STATUS *vehicle_status, FILE *fp) {
 
     static double total_time = 0;
     double time_sampling;
@@ -15,7 +16,8 @@ void simulator(FILE *trjc, FILE *dr, struct VEHICLE_STATUS *vehicle_status, FILE
     position_integration(time_sampling, vehicle_status);
 
     /* Input time sampling = 0.01;
-    To match the input sampling time with the current time, the new input should be called only
+    To match the input sampling time with the current time, 
+    the new input should be called only
     once per time sampling = 0.01.
     */
     static int k = 0;
@@ -48,29 +50,26 @@ int main(void)
    
     // Open Trajectory
     FILE *trjc;
-    char* file_traj = "data/Trajectory.csv"; 
-    trjc = fopen(file_traj,"r");
+    trjc = fopen("data/Trajectory.csv","r");
     if (trjc == NULL){
-        printf("Could not open file %s",file_traj);
+        printf("Could not open file %s","data/Trajectory.csv");
         return 1;
     }
 
     // Open Log file
     FILE *fp;
-    char str[100];
-    char* filename = "log.csv";
-    fp = fopen(filename, "w");
+    fp = fopen("log.csv", "w");
     if (fp == NULL){
-        printf("Could not open file %s",filename);
+        printf("Could not open file %s","log.csv");
         return 1;
     }
 
     // Open Log file
     FILE *dr;
-    char* filedrive = "drive.csv";
-    dr = fopen(filedrive, "w");
+    char* filedrive;
+    dr = fopen("drive.csv", "w");
     if (dr == NULL){
-        printf("Could not open file %s",filedrive);
+        printf("Could not open file %s","drive.csv");
         return 1;
     }
 
@@ -80,15 +79,16 @@ int main(void)
 
     char line[60];
     fgets(line,60,trjc); // Remove header from csv
-    
+
     do{
         system(vehicle);
         simulator(trjc, dr, vehicle, fp);
     }while(!feof(trjc));
     
-    printf("Press any key to finish\n");
-    getchar();
     fclose(fp);
     fclose(trjc);
     fclose(dr);
+    free(vehicle);
+    printf("Press any key to finish\n");
+    getchar();
 }
