@@ -9,7 +9,7 @@
 //#include <unistd.h>
 //#endif
 
-void simulator(FILE *trjc, struct VEHICLE_STATUS *vehicle_status) {
+void simulator(FILE *trjc, struct VEHICLE_STATUS *vehicle_status, FILE *fp) {
 
     static double total_time = 0;
     double time_sampling;
@@ -26,9 +26,10 @@ void simulator(FILE *trjc, struct VEHICLE_STATUS *vehicle_status) {
     */
     static int k = 0;
     if (total_time > 0.01*k){
-        driver_attitude(0.01, trjc, vehicle_status);
-        // environment_status(vehicle_status); release 3
-        information_display(total_time, vehicle_status); 
+        driver_attitude(0.01, total_time, trjc, vehicle_status);
+        if (k%1000 == 0){
+            information_display(total_time, vehicle_status, fp); 
+        }
         k++;
     }
 }
@@ -88,9 +89,7 @@ int main(void)
     fgets(line,50,trjc); // Remove header from csv
     
     do{
-        //system(vehicle);
-        simulator(trjc, vehicle);
-        //usleep(10);
+        simulator(trjc, vehicle, fp);
     }while(!feof(trjc));
     
     printf("Gas sensor: %f\n", vehicle->gas_pedal_pos);
@@ -100,8 +99,7 @@ int main(void)
     printf("Steering wheel sensor: %f\n", vehicle->steering_wheel_pos);
     printf("Steering wheel Act: %f\n", vehicle->direction_actuator_pos);
     
-    printf("Press any key to finish\n");
-    getchar();
+    printf("End of the test\n");
     fclose(fp);
     fclose(trjc);
 }

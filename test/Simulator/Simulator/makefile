@@ -8,7 +8,7 @@ bin_folder := $(shell mkdir -p bin)
 build_folder := $(shell mkdir -p build)
 
 #TARGET TO COMPILE EVERYTHING (ABP SIMULATOR + TESTS TOGETHER)
-all: Simulator clean
+all: Simulator run clean
 
 #TARGET TO COMPILE ALL THE TESTS TOGETHER (NOT SIMULATOR)
 main.o:
@@ -29,6 +29,10 @@ information_display.o:
 #TARGET TO COMPILE ONLY ABP SIMULATOR
 Simulator: main.o differential_time.o vehicle_angle.o vehicle_velocity.o position_integration.o driver_attitude.o information_display.o
 	$(CC) -g -o test.exe build/main.o build/differential_time.o build/vehicle_angle.o build/vehicle_velocity.o build/position_integration.o build/driver_attitude.o build/information_display.o
+
+#RUN
+run:
+	./test.exe
 
 #CLEAN COMMANDS
 clean: 

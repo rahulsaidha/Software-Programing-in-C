@@ -135,7 +135,6 @@ int main(){
         fprintf(fp,"Expected: %f | Result: %f\n", expect, vehicle->Comm_bus_message);
     }
 
-	printf("Press any key to finish\n");
-	getchar();
+	printf("End of test\n");
     fclose(fp);
 }

@@ -79,7 +79,7 @@ System:
 - direction\_actuator.c  
 - fuel\_actuator.c  
 - gas\_pedal\_sensor.c  
-- steering\_wheel_sensor.c  
+- steering\_wheel\_sensor.c  
 - wheel\_sensor.c   
 
 ### Unit Testing

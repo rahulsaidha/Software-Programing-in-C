@@ -26,7 +26,7 @@ int main(){
     vehicle->vehicle_wheel_rotation = 2.0;
     vehicle->vehicle_position_X = 3.0;
     vehicle->vehicle_position_Y = 4.0;
-    vehicle->motor_rotation = 5.0;
+    vehicle->vehicle_speed = 5.0;
     vehicle->gas_pedal_pos = 6.0;
     vehicle->brake_pedal_pos = 7.0;
     vehicle->steering_wheel_pos = 8.0;
@@ -63,7 +63,6 @@ int main(){
     fprintf(fp,"Expected: %f | Result: %f\n", 12.0, vehicle->fuel_actuator_pos);
     fprintf(fp,"Expected: %f | Result: %f\n", 1.0, vehicle->Comm_bus_message);
 
-	printf("Press any key to finish\n");
-	getchar();
+	printf("End of test\n");
     fclose(fp);
 }

@@ -2,21 +2,6 @@
 #include "main.h"
 #include <string.h>
 
-/*
-void simulator(struct VEHICLE_STATUS *vehicle_status) {
-    static double total_time = 0;
-    double *time_sampling;
-    *time_sampling = differential_time();
-    total_time = total_time + time_sampling;
-    vehicle_angle(vehicle_status, time_sampling);
-    motor_rotation(vehicle_status, time_sampling);
-    vehicle_velocity(vehicle_status, time_sampling);
-    position_integration(vehicle_status, time_sampling);
-    driver_attitude(vehicle_status);
-    // environment_status(vehicle_status); release 3
-    information_display(vehicle_status);
-}
-*/
 void system(struct VEHICLE_STATUS *vehicle_status) {
     controller(vehicle_status);
     gas_pedal_sensor(vehicle_status);
@@ -37,7 +22,7 @@ int main(void)
    
     // Open Trajectory
     FILE *trjc;
-    char* file_traj = "../../data/Trajectory.csv"; 
+    char* file_traj = "../../../data/Trajectory.csv"; 
     trjc = fopen(file_traj,"r");
     if (trjc == NULL){
         printf("Could not open file %s",file_traj);
@@ -58,7 +43,7 @@ int main(void)
     vehicle->vehicle_wheel_rotation = 2.0;
     vehicle->vehicle_position_X = 3.0;
     vehicle->vehicle_position_Y = 4.0;
-    vehicle->motor_rotation = 5.0;
+    vehicle->vehicle_speed = 5.0;
 
     vehicle->gas_pedal_pos = 6.0;
     vehicle->brake_pedal_pos = 7.0;
@@ -87,8 +72,7 @@ int main(void)
     printf("Steering wheel sensor: %f\n", vehicle->steering_wheel_pos);
     printf("Steering wheel Act: %f\n", vehicle->direction_actuator_pos);
     
-    printf("Press any key to finish\n");
-    getchar();
+    printf("End of test\n");
     fclose(fp);
     fclose(trjc);
 }

@@ -1,0 +1,162 @@
+
+Testcase -14268
+Expected: = 0.000000 | Result: 0.000000
+
+Testcase -14268
+Expected: ~ 0.000000 | Result: 0.000000
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.003115
+
+Testcase -14268
+Expected: = 0.990000 | Result: 0.000000
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.013950
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.015844
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.015212
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.015274
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.000000
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.021907
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.017601
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.014003
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.015334
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.015593
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.015722
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.021847
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.015455
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.015637
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.015780
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.015607
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.015601
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.021822
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.015427
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.015720
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.015703
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.015697
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.015470
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.022231
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.015001
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.015955
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.015615
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.015458
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.015736
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.022015
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.015341
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.015488
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.015704
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.015650
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.015675
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.021695
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.015738
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.015635
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.015649
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.015495
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.015634
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.021785
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.015507
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.015811
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.015794
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.015507
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.015556
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.021624
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.015783
+
+Testcase -14268
+Expected: = 0.010000 | Result: 0.015637

@@ -37,7 +37,7 @@ Another option to generate plots is using a python script (show_results.py) prov
  python show_results.py
  ```  
 
-Then, the plots are saved in the folder /data.
+Then, the plots are saved in .png images in the folder /data.
 
 To use other data: Copy file with the trajectory in the folder /data.   
 

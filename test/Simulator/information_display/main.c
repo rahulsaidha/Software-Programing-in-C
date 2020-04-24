@@ -1,13 +1,7 @@
 #include "header.h"
 #include <string.h>
 
-#ifdef _WIN32
-#include <Windows.h>
-#else
-#include <unistd.h>
-#endif
-
-void information_display(double time, struct VEHICLE_STATUS* vehicle);
+void information_display(double time, struct VEHICLE_STATUS* vehicle, FILE* fp);
 
 int main(){
     // Define Variables
@@ -39,13 +33,12 @@ int main(){
     do{
         fgets(line, 100,trjc);
         if(k%1000 == 0){
-            information_display((double)k, vehicle);    
-            sleep(1);        
+            information_display((double)k, vehicle, fp);        
         }
         k++;
 	}while(!feof(trjc));
 
-    printf("Simulation finished\nPress any key to close\n");
+    printf("End of the test\n");
 	getchar();
     fclose(fp);
     fclose(trjc);
