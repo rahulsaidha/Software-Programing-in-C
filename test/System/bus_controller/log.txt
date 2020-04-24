@@ -1,154 +1,320 @@
 
-Testcase 1 and 2
-Expected: 10000001 | Result: 10000001
-Expected: 10000010 | Result: 10000010
-Expected: 10000011 | Result: 10000011
-Expected: 10000100 | Result: 10000100
-Expected: 10000101 | Result: 10000101
-Expected: 10000110 | Result: 10000110
-Expected: 10000111 | Result: 10000111
-Expected: 10000001 | Result: 10000001
-Expected: 10000010 | Result: 10000010
-Expected: 10000011 | Result: 10000011
-Expected: 10000100 | Result: 10000100
-Expected: 10000101 | Result: 10000101
-Expected: 10000110 | Result: 10000110
-Expected: 10000111 | Result: 10000111
-Expected: 10000001 | Result: 10000001
-Expected: 10000010 | Result: 10000010
+Testcase 1
+Expected: = 10000001.000000 | Result: 10000001.000000
+Expected: = 0.000000 | Result: 0.000000
+
+Testcase 1
+Expected: = 10000010.000000 | Result: 10000010.000000
+Expected: = 0.000000 | Result: 0.000000
+
+Testcase 1
+Expected: = 10000011.000000 | Result: 10000011.000000
+Expected: = 0.000000 | Result: 0.000000
+
+Testcase 1
+Expected: = 10000100.000000 | Result: 10000100.000000
+Expected: = 0.000000 | Result: 0.000000
+
+Testcase 1
+Expected: = 10000101.000000 | Result: 10000101.000000
+Expected: = 0.000000 | Result: 0.000000
+
+Testcase 1
+Expected: = 10000110.000000 | Result: 10000110.000000
+Expected: = 0.000000 | Result: 0.000000
+
+Testcase 1
+Expected: = 10000111.000000 | Result: 10000111.000000
+Expected: = 0.000000 | Result: 0.000000
+
+Testcase 1
+Expected: = 10000001.000000 | Result: 10000001.000000
+Expected: = 0.000000 | Result: 0.000000
+
+Testcase 1
+Expected: = 10000010.000000 | Result: 10000010.000000
+Expected: = 0.000000 | Result: 0.000000
+
+Testcase 1
+Expected: = 10000011.000000 | Result: 10000011.000000
+Expected: = 0.000000 | Result: 0.000000
+
+Testcase 1
+Expected: = 10000100.000000 | Result: 10000100.000000
+Expected: = 0.000000 | Result: 0.000000
+
+Testcase 1
+Expected: = 10000101.000000 | Result: 10000101.000000
+Expected: = 0.000000 | Result: 0.000000
+
+Testcase 1
+Expected: = 10000110.000000 | Result: 10000110.000000
+Expected: = 0.000000 | Result: 0.000000
+
+Testcase 1
+Expected: = 10000111.000000 | Result: 10000111.000000
+Expected: = 0.000000 | Result: 0.000000
+
+Testcase 1
+Expected: = 10000001.000000 | Result: 10000001.000000
+Expected: = 0.000000 | Result: 0.000000
+
+Testcase 1
+Expected: = 10000010.000000 | Result: 10000010.000000
+Expected: = 0.000000 | Result: 0.000000
 
 Testcase 3
-Expected: 10000011 | Result: 10000011
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000100 | Result: 10000100
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000101 | Result: 10000101
-Expected: 100.000000 | Result: 100.000000
-Expected: 10000110 | Result: 10000110
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000111 | Result: 10000111
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000001 | Result: 10000001
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000010 | Result: 10000010
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000011 | Result: 10000011
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000100 | Result: 10000100
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000101 | Result: 10000101
-Expected: 100.000000 | Result: 100.000000
-Expected: 10000110 | Result: 10000110
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000111 | Result: 10000111
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000001 | Result: 10000001
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000010 | Result: 10000010
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000011 | Result: 10000011
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000100 | Result: 10000100
-Expected: 1.000000 | Result: 1.000000
+Expected: = 10000011.000000 | Result: 10000011.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 3
+Expected: = 10000100.000000 | Result: 10000100.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 3
+Expected: = 10000101.000000 | Result: 10000101.000000
+Expected: = 100.000000 | Result: 100.000000
+
+Testcase 3
+Expected: = 10000110.000000 | Result: 10000110.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 3
+Expected: = 10000111.000000 | Result: 10000111.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 3
+Expected: = 10000001.000000 | Result: 10000001.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 3
+Expected: = 10000010.000000 | Result: 10000010.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 3
+Expected: = 10000011.000000 | Result: 10000011.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 3
+Expected: = 10000100.000000 | Result: 10000100.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 3
+Expected: = 10000101.000000 | Result: 10000101.000000
+Expected: = 100.000000 | Result: 100.000000
+
+Testcase 3
+Expected: = 10000110.000000 | Result: 10000110.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 3
+Expected: = 10000111.000000 | Result: 10000111.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 3
+Expected: = 10000001.000000 | Result: 10000001.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 3
+Expected: = 10000010.000000 | Result: 10000010.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 3
+Expected: = 10000011.000000 | Result: 10000011.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 3
+Expected: = 10000100.000000 | Result: 10000100.000000
+Expected: = 1.000000 | Result: 1.000000
 
 Testcase 4
-Expected: 10000101 | Result: 10000101
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000110 | Result: 10000110
-Expected: 100.000000 | Result: 100.000000
-Expected: 10000111 | Result: 10000111
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000001 | Result: 10000001
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000010 | Result: 10000010
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000011 | Result: 10000011
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000100 | Result: 10000100
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000101 | Result: 10000101
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000110 | Result: 10000110
-Expected: 100.000000 | Result: 100.000000
-Expected: 10000111 | Result: 10000111
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000001 | Result: 10000001
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000010 | Result: 10000010
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000011 | Result: 10000011
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000100 | Result: 10000100
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000101 | Result: 10000101
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000110 | Result: 10000110
-Expected: 100.000000 | Result: 100.000000
+Expected: = 10000101.000000 | Result: 10000101.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 4
+Expected: = 10000110.000000 | Result: 10000110.000000
+Expected: = 100.000000 | Result: 100.000000
+
+Testcase 4
+Expected: = 10000111.000000 | Result: 10000111.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 4
+Expected: = 10000001.000000 | Result: 10000001.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 4
+Expected: = 10000010.000000 | Result: 10000010.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 4
+Expected: = 10000011.000000 | Result: 10000011.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 4
+Expected: = 10000100.000000 | Result: 10000100.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 4
+Expected: = 10000101.000000 | Result: 10000101.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 4
+Expected: = 10000110.000000 | Result: 10000110.000000
+Expected: = 100.000000 | Result: 100.000000
+
+Testcase 4
+Expected: = 10000111.000000 | Result: 10000111.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 4
+Expected: = 10000001.000000 | Result: 10000001.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 4
+Expected: = 10000010.000000 | Result: 10000010.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 4
+Expected: = 10000011.000000 | Result: 10000011.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 4
+Expected: = 10000100.000000 | Result: 10000100.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 4
+Expected: = 10000101.000000 | Result: 10000101.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 4
+Expected: = 10000110.000000 | Result: 10000110.000000
+Expected: = 100.000000 | Result: 100.000000
+
+Testcase 4
+Expected: = 10000111.000000 | Result: 10000111.000000
+Expected: = 100.000000 | Result: 100.000000
+
+Testcase 4
+Expected: = 10000001.000000 | Result: 10000001.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 4
+Expected: = 10000010.000000 | Result: 10000010.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 4
+Expected: = 10000011.000000 | Result: 10000011.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 4
+Expected: = 10000100.000000 | Result: 10000100.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 4
+Expected: = 10000101.000000 | Result: 10000101.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 4
+Expected: = 10000110.000000 | Result: 10000110.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 4
+Expected: = 10000111.000000 | Result: 10000111.000000
+Expected: = 100.000000 | Result: 100.000000
+
+Testcase 4
+Expected: = 10000001.000000 | Result: 10000001.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 4
+Expected: = 10000010.000000 | Result: 10000010.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 4
+Expected: = 10000011.000000 | Result: 10000011.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 4
+Expected: = 10000100.000000 | Result: 10000100.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 4
+Expected: = 10000101.000000 | Result: 10000101.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 4
+Expected: = 10000110.000000 | Result: 10000110.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 4
+Expected: = 10000111.000000 | Result: 10000111.000000
+Expected: = 100.000000 | Result: 100.000000
+
+Testcase 4
+Expected: = 10000001.000000 | Result: 10000001.000000
+Expected: = 1.000000 | Result: 1.000000
 
 Testcase 5
-Expected: 10000111 | Result: 10000111
-Expected: 100.000000 | Result: 100.000000
-Expected: 10000001 | Result: 10000001
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000010 | Result: 10000010
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000011 | Result: 10000011
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000100 | Result: 10000100
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000101 | Result: 10000101
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000110 | Result: 10000110
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000111 | Result: 10000111
-Expected: 100.000000 | Result: 100.000000
-Expected: 10000001 | Result: 10000001
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000010 | Result: 10000010
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000011 | Result: 10000011
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000100 | Result: 10000100
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000101 | Result: 10000101
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000110 | Result: 10000110
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000111 | Result: 10000111
-Expected: 100.000000 | Result: 100.000000
-Expected: 10000001 | Result: 10000001
-Expected: 1.000000 | Result: 1.000000
+Expected: = 10000010.000000 | Result: 10000010.000000
+Expected: = 1.000000 | Result: 1.000000
 
-Testcase 6
-Expected: 10000010 | Result: 10000010
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000011 | Result: 10000011
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000100 | Result: 10000100
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000101 | Result: 10000101
-Expected: 100.000000 | Result: 100.000000
-Expected: 10000110 | Result: 10000110
-Expected: 100.000000 | Result: 100.000000
-Expected: 10000111 | Result: 10000111
-Expected: 100.000000 | Result: 100.000000
-Expected: 10000001 | Result: 10000001
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000010 | Result: 10000010
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000011 | Result: 10000011
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000100 | Result: 10000100
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000101 | Result: 10000101
-Expected: 100.000000 | Result: 100.000000
-Expected: 10000110 | Result: 10000110
-Expected: 100.000000 | Result: 100.000000
-Expected: 10000111 | Result: 10000111
-Expected: 100.000000 | Result: 100.000000
-Expected: 10000001 | Result: 10000001
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000010 | Result: 10000010
-Expected: 1.000000 | Result: 1.000000
-Expected: 10000011 | Result: 10000011
-Expected: 1.000000 | Result: 1.000000
+Testcase 5
+Expected: = 10000011.000000 | Result: 10000011.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 5
+Expected: = 10000100.000000 | Result: 10000100.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 5
+Expected: = 10000101.000000 | Result: 10000101.000000
+Expected: = 100.000000 | Result: 100.000000
+
+Testcase 5
+Expected: = 10000110.000000 | Result: 10000110.000000
+Expected: = 100.000000 | Result: 100.000000
+
+Testcase 5
+Expected: = 10000111.000000 | Result: 10000111.000000
+Expected: = 100.000000 | Result: 100.000000
+
+Testcase 5
+Expected: = 10000001.000000 | Result: 10000001.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 5
+Expected: = 10000010.000000 | Result: 10000010.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 5
+Expected: = 10000011.000000 | Result: 10000011.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 5
+Expected: = 10000100.000000 | Result: 10000100.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 5
+Expected: = 10000101.000000 | Result: 10000101.000000
+Expected: = 100.000000 | Result: 100.000000
+
+Testcase 5
+Expected: = 10000110.000000 | Result: 10000110.000000
+Expected: = 100.000000 | Result: 100.000000
+
+Testcase 5
+Expected: = 10000111.000000 | Result: 10000111.000000
+Expected: = 100.000000 | Result: 100.000000
+
+Testcase 5
+Expected: = 10000001.000000 | Result: 10000001.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 5
+Expected: = 10000010.000000 | Result: 10000010.000000
+Expected: = 1.000000 | Result: 1.000000
+
+Testcase 5
+Expected: = 10000011.000000 | Result: 10000011.000000
+Expected: = 1.000000 | Result: 1.000000

@@ -65,7 +65,7 @@ void driver_attitude(double time_sampling,
         value = strtok(NULL, ",");
         Speed = strtod(value, &eptr);
     }
-    // Computing the differences in trajectories
+    // Computing the differences in trajectories    
     static double last_real_X = 0;
     static double last_real_Y = 0;
     static double last_desired_X = 0;

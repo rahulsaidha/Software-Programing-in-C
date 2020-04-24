@@ -13,9 +13,9 @@ void print_results(FILE* fp,    int testcase,
     printf("\nTestcase %d\n", testcase);
     printf("Expected: %c %f | Result: %f\n",comparison_1, expected_1, result_1);
     //printf("Expected: %c %f | Result: %f\n",comparison_2, expected_2, result_2); 
-    fprintf(fp,"\nTestcase %d\n");
-    fprintf(fp,"Expected: %c %f | Result: %f\n", 0.0, result_1);
-    //fprintf(fp,"Expected: %c %f | Result: %f\n", 0.0, result_2); 
+    fprintf(fp,"\nTestcase %d\n", testcase);
+    fprintf(fp,"Expected: %c %f | Result: %f\n", comparison_1, expected_1, result_1);
+    //fprintf(fp,"Expected: %c %f | Result: %f\n", comparison_2, expected_2, result_2);   
 }
 
 int main(void)
@@ -35,7 +35,7 @@ int main(void)
 
     vehicle->vehicle_position_X = 0.0;
     vehicle->vehicle_position_Y = 0.0;
-    vehicle->motor_rotation = 0.0;
+    vehicle->vehicle_speed = 20.0;
 
     vehicle->gas_pedal_pos = 0.0;
     vehicle->brake_pedal_pos = 0.0;
@@ -106,7 +106,6 @@ int main(void)
     }
     print_results(fp,10,'>',0.0,vehicle->vehicle_speed,'=',0.0,0.0);
 
-    printf("Press any key to finish\n");
-    getchar();
+    printf("End of the test\n");
     fclose(fp);
 }

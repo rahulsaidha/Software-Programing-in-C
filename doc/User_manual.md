@@ -31,13 +31,13 @@ The Simulation can be performed typing on the Unix/Cygwin console:
   ```  
 
 The results are shown on the screen. A log.csv file is created and this information can be plotted using a spreadsheet.
-Another option to generate plots is using a python script (show_results.py) provided with the software. If Python 3.7 is installed in your system call is typing:  
+Another option to generate plots is using a python script (show_results.py) provided with the software. If Python 3.7 is installed in your system, call it typing:  
 
  ```
  python show_results.py
  ```  
 
-Then, the plots are saved in the folder /data.
+Then, the plots are saved in .png images in the folder /data.
 
 To use other data: Copy file with the trajectory in the folder /data.   
 

@@ -1,0 +1,162 @@
+
+Testcase 1
+Expected: = 0.000000 | Result: 0.000000
+
+Testcase 2
+Expected: ~ 0.000000 | Result: 0.000000
+
+Testcase 3
+Expected: = 0.010000 | Result: 0.003839
+
+Testcase 4
+Expected: = 0.990000 | Result: 0.000000
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.013874
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.052695
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.009633
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.015089
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.017928
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.015974
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.015111
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.016714
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.021101
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.019405
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.015306
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.016032
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.021752
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.015676
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.015554
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.015527
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.015395
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.015956
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.015095
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.015770
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.021007
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.017277
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.015516
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.015737
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.015665
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.015591
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.015481
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.017471
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.023613
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.017879
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.013414
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.015292
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.015816
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.015339
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.016716
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.015419
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.016140
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.014963
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.015714
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.024498
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.015292
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.030366
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.015701
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.015326
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.023621
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.015338
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.015877
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.015573
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.015663
+
+Testcase 10
+Expected: = 0.010000 | Result: 0.015509

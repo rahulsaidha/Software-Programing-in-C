@@ -1,6 +1,22 @@
 #include "header.h"
+#include <stdio.h>
 
 int bus_controller(double steering_wheel_pos, double gas_pedal_pos, double brake_pedal_pos, struct VEHICLE_STATUS *vehicle_status);
+
+void print_results(FILE* fp,    int testcase, 
+                                char comparison_1,                                
+                                double expected_1,                                
+                                double result_1,
+                                char comparison_2,
+                                double expected_2,
+                                double result_2){
+    printf("\nTestcase %d\n", testcase);
+    printf("Expected: %c %f | Result: %f\n",comparison_1, expected_1, result_1);
+    printf("Expected: %c %f | Result: %f\n",comparison_2, expected_2, result_2); 
+    fprintf(fp,"\nTestcase %d\n", testcase);
+    fprintf(fp,"Expected: %c %f | Result: %f\n", comparison_1, expected_1, result_1);
+    fprintf(fp,"Expected: %c %f | Result: %f\n", comparison_2, expected_2, result_2);   
+}
 
 int main(){
     // Define Variables
@@ -31,18 +47,16 @@ int main(){
     Expected output: the address returned by the function should be the same in the vehicle_status->bus_address;
     Testcase 2 - Several sequential calls with the same input parameters. 
     Expected output: return a different address in each call, until the sequence finishes, and then repeat the addresses;
-    */
-    fprintf(fp,"\nTestcase 1 and 2\n"); 
+    */ 
     for (int i = 0; i<=15;i++){
 	   testcase = bus_controller(steering_wheel_pos, gas_pedal_pos, brake_pedal_pos, vehicle);
-       fprintf(fp,"Expected: %d | Result: %d\n", testcase, vehicle->Comm_bus_address);
+       print_results(fp,1,'=',testcase, vehicle->Comm_bus_address,'=',0.0,0.0);
     }
 
     /* Testcase 3 - Several sequential calls with steering_wheel_pos = 100, all others = 1. Expected output:
     vehicle_status.bus_message = 1 for all cases except when address returned equal to direction
     actuator address, in this case, vehicle_status->bus_message = 100;
     */
-    fprintf(fp,"\nTestcase 3\n");
     vehicle_wheel_rotation = 1.0;
     gas_pedal_pos = 1.0;
     brake_pedal_pos = 1.0;
@@ -52,21 +66,19 @@ int main(){
     brake_actuator_pos = 1.0;
     for (int i = 0; i<=15;i++){
         testcase = bus_controller(steering_wheel_pos, gas_pedal_pos, brake_pedal_pos, vehicle);
-        fprintf(fp,"Expected: %d | Result: %d\n", testcase, vehicle->Comm_bus_address);
         if(testcase == DIR_ACT_ADDRESS){
             expect = 100.0;
         }
         else{
             expect = 1.0;
         }
-        fprintf(fp,"Expected: %f | Result: %f\n", expect, vehicle->Comm_bus_message);
+        print_results(fp,3,'=',testcase, vehicle->Comm_bus_address,'=',expect,vehicle->Comm_bus_message);
     }
     
     /* Testcase 4 - Several sequential calls with gas_pedal_pos = 100, all others = 1. Expected output:
     vehicle_status.bus_message = 1 for all cases except when address returned equal to fuel
     actuator address, in this case, vehicle_status.bus_message = 100;
     */
-    fprintf(fp,"\nTestcase 4\n");
     vehicle_wheel_rotation = 1.0;
     gas_pedal_pos = 100.0;
     brake_pedal_pos = 1.0;
@@ -76,21 +88,19 @@ int main(){
     brake_actuator_pos = 1.0;
     for (int i = 0; i<=15;i++){
         testcase = bus_controller(steering_wheel_pos, gas_pedal_pos, brake_pedal_pos, vehicle);
-        fprintf(fp,"Expected: %d | Result: %d\n", testcase, vehicle->Comm_bus_address);
         if(testcase == FUEL_ACT_ADDRESS){
             expect = 100.0;
         }
         else{
             expect = 1.0;
         }
-        fprintf(fp,"Expected: %f | Result: %f\n", expect, vehicle->Comm_bus_message);
+        print_results(fp,4,'=',testcase, vehicle->Comm_bus_address,'=',expect,vehicle->Comm_bus_message);
     }    
 
     /* Testcase 5 - Several sequential calls with brake_pedal_pos = 100, all others = 1. Expected output:
     vehicle_status.bus_message = 1 for all cases except when address returned equal to brake
     actuator address, in this case, vehicle_status.bus_message = 100;
     */
-    fprintf(fp,"\nTestcase 5\n");
     vehicle_wheel_rotation = 1.0;
     gas_pedal_pos = 1.0;
     brake_pedal_pos = 100.0;
@@ -100,14 +110,13 @@ int main(){
     brake_actuator_pos = 1.0;
     for (int i = 0; i<=15;i++){
         testcase = bus_controller(steering_wheel_pos, gas_pedal_pos, brake_pedal_pos, vehicle);
-        fprintf(fp,"Expected: %d | Result: %d\n", testcase, vehicle->Comm_bus_address);
         if(testcase == BRAKE_ACT_ADDRESS){
             expect = 100.0;
         }
         else{
             expect = 1.0;
         }
-        fprintf(fp,"Expected: %f | Result: %f\n", expect, vehicle->Comm_bus_message);
+        print_results(fp,4,'=',testcase, vehicle->Comm_bus_address,'=',expect,vehicle->Comm_bus_message);
     }
 
     /* Testcase 6 - Several sequential calls with steering_wheel_pos = 100, gas_pedal_pos = 100, brake_pedal_pos = 100. 
@@ -115,7 +124,6 @@ int main(){
     sensor or steering sensor or wheel sensor addresses, or vehicle_status.bus_message = 1 for
     returned address equal to brake actuator or fuel actuator or direction actuator addresses.
     */
-    fprintf(fp,"\nTestcase 6\n");
     vehicle_wheel_rotation = 1.0;
     gas_pedal_pos = 100.0;
     brake_pedal_pos = 100.0;
@@ -125,17 +133,15 @@ int main(){
     brake_actuator_pos = 1.0;
     for (int i = 0; i<=15;i++){
         testcase = bus_controller(steering_wheel_pos, gas_pedal_pos, brake_pedal_pos, vehicle);
-        fprintf(fp,"Expected: %d | Result: %d\n", testcase, vehicle->Comm_bus_address);
         if((testcase == DIR_ACT_ADDRESS) || (testcase == FUEL_ACT_ADDRESS) || (testcase == BRAKE_ACT_ADDRESS)){
             expect = 100.0;
         }
         else{
             expect = 1.0;
         }
-        fprintf(fp,"Expected: %f | Result: %f\n", expect, vehicle->Comm_bus_message);
+        print_results(fp,5,'=',testcase, vehicle->Comm_bus_address,'=',expect,vehicle->Comm_bus_message);
     }
 
-	printf("Press any key to finish\n");
-	getchar();
+	printf("End of test\n");
     fclose(fp);
 }

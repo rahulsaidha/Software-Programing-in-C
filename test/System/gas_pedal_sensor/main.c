@@ -1,7 +1,23 @@
 #include "header.h"
 #include <string.h>
+#include <stdio.h>
 
 void gas_pedal_sensor(struct VEHICLE_STATUS *vehicle_status);
+
+void print_results(FILE* fp,    int testcase, 
+                                char comparison_1,                                
+                                double expected_1,                                
+                                double result_1,
+                                char comparison_2,
+                                double expected_2,
+                                double result_2){
+    printf("\nTestcase %d\n", testcase);
+    printf("Expected: %c %f | Result: %f\n",comparison_1, expected_1, result_1);
+    printf("Expected: %c %f | Result: %f\n",comparison_2, expected_2, result_2); 
+    fprintf(fp,"\nTestcase %d\n", testcase);
+    fprintf(fp,"Expected: %c %f | Result: %f\n", comparison_1, expected_1, result_1);
+    fprintf(fp,"Expected: %c %f | Result: %f\n", comparison_2, expected_2, result_2);   
+}
 
 int main(){
     // Define Variables
@@ -19,39 +35,39 @@ int main(){
     }
 
     // Run testcase
-    vehicle->vehicle_wheel_angle = 1;
-    vehicle->vehicle_wheel_rotation = 2;
-    vehicle->vehicle_position_X = 3;
-    vehicle->vehicle_position_Y = 4;
-    vehicle->motor_rotation = 5;
-    vehicle->gas_pedal_pos = 6;
-    vehicle->brake_pedal_pos = 7;
-    vehicle->steering_wheel_pos = 8;
-    vehicle->direction_actuator_pos = 9;
-    vehicle->fuel_actuator_pos = 10;
-    vehicle->brake_actuator_pos = 11;
+    vehicle->vehicle_wheel_angle = 1.0;
+    vehicle->vehicle_wheel_rotation = 2.0;
+    vehicle->vehicle_position_X = 3.0;
+    vehicle->vehicle_position_Y = 4.0;
+    vehicle->vehicle_speed = 5.0;
+    vehicle->gas_pedal_pos = 6.0;
+    vehicle->brake_pedal_pos = 7.0;
+    vehicle->steering_wheel_pos = 8.0;
+    vehicle->direction_actuator_pos = 9.0;
+    vehicle->fuel_actuator_pos = 10.0;
+    vehicle->brake_actuator_pos = 11.0;
     
     vehicle->Comm_bus_address = 0;
     int address;
     double message;
 
-    //Testcase 0: requesting another device
+    /* Testcase 0: requesting another device;
+    Expect: no response
+    */
     address = BRAKE_PEDAL_SSR_ADDRESS;
     message = 0;
     vehicle->Comm_bus_address = address;
     gas_pedal_sensor(vehicle);
-    fprintf(fp,"\nTestcase 0\n");
-    fprintf(fp,"Expected: %d | Result: %d\n", address, vehicle->Comm_bus_address);
-    fprintf(fp,"Expected: %f | Result: %f\n", message, vehicle->Comm_bus_message);
+    print_results(fp,0,'=',address,vehicle->Comm_bus_address,
+                       '=',message,vehicle->Comm_bus_message);
 
     //Testcase 1: requesting and receiving from device
     address = GAS_PEDAL_SSR_ADDRESS;
     message = 6;
     vehicle->Comm_bus_address = address;
     gas_pedal_sensor(vehicle);
-    fprintf(fp,"\nTestcase 1\n");
-    fprintf(fp,"Expected: %d | Result: %d\n", CTRL_ADDRESS, vehicle->Comm_bus_address);
-    fprintf(fp,"Expected: %f | Result: %f\n", message, vehicle->Comm_bus_message);
+    print_results(fp,1,'=',CTRL_ADDRESS,vehicle->Comm_bus_address,
+                       '=',message,vehicle->Comm_bus_message);
 
     //Testcase 2: requesting again with another value
     address = GAS_PEDAL_SSR_ADDRESS;
@@ -59,11 +75,9 @@ int main(){
     vehicle->gas_pedal_pos = 10;
     vehicle->Comm_bus_address = address;
     gas_pedal_sensor(vehicle);
-    fprintf(fp,"\nTestcase 2\n");
-    fprintf(fp,"Expected: %d | Result: %d\n", CTRL_ADDRESS, vehicle->Comm_bus_address);
-    fprintf(fp,"Expected: %f | Result: %f\n", message, vehicle->Comm_bus_message);
-
-	printf("Press any key to finish\n");
-	getchar();
+    print_results(fp,2,'=',CTRL_ADDRESS,vehicle->Comm_bus_address,
+                       '=',message,vehicle->Comm_bus_message);
+    
+	printf("End of test\n");
     fclose(fp);
 }

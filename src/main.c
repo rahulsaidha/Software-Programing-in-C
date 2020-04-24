@@ -57,7 +57,7 @@ int main(void)
 
     // Open Log file
     FILE *fp;
-    fp = fopen("log.csv", "w");
+    fp = fopen("data/log.csv", "w");
     if (fp == NULL){
         printf("Could not open file %s","log.csv");
         return 1;
@@ -77,6 +77,6 @@ int main(void)
     fclose(fp);
     fclose(trjc);
     free(vehicle);
-    printf("Press any key to finish\n");
+    printf("End of Simulation\nPress any key to finish\n");
     getchar();
 }

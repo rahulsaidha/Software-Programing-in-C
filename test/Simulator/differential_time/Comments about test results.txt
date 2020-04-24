@@ -1,0 +1,11 @@
+Testcase 3 fails:
+High error, probably because of the lack of accuracy on the sleep function.
+
+Testcase 4 fails:
+Limitation of the function to deal with a time equal or higher than 1s; 
+the test shows that when the result is slightly lower than 1 the problem happens too.
+The probable cause is the lack of accuracy on the sleep function.
+
+Testcase 5 fails:
+bug: in some cases, the memory is restarted making the time negative;
+a partial solution is set the time to 0 when it happens. It does not impair too much the performance because the updates follow the time, so time equals 0 means no update in the calculations.
