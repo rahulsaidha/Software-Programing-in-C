@@ -51,7 +51,7 @@ The Simulator is the part responsible for testing the System, emulating the beha
 The trajectory data should be a .csv file with the name: Trajectory.csv. The file should have a header with the following columns: Time, X, Y, Speed. Respectively the time, position in X and Y and maximum speed in the sector.   
 
 ### Program flow
-![Diagram](https://github.com/PCoser/Software-Programing-in-C/doc/vehicle.jpeg)
+![Diagram](https://github.com/PCoser/Software-Programing-in-C/blob/master/doc/Vehicle.jpeg)
 
 * On the initialization, the input data is loaded, the variable of the vehicle are initialized. 
 * On a continuous loop, the software swap between the Simulator and the System sub-routines.
