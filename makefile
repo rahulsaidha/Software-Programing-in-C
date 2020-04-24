@@ -55,24 +55,22 @@ compile: main.o differential_time.o vehicle_angle.o vehicle_velocity.o position_
 
 #TARGET TO COMPILE AND RUN UNIT TESTS
 unit:
-#	(cd test/Simulator/differential_time && make) 
-#	(cd test/Simulator/driver_attitude && make) 
-#	(cd test/Simulator/information_display && make) 
-#	(cd test/Simulator/position_integration && make) 
-#	(cd test/Simulator/vehicle_angle && make) 
+	(cd test/Simulator/differential_time && make) 
+	(cd test/Simulator/driver_attitude && make) 
+	(cd test/Simulator/information_display && make) 
+	(cd test/Simulator/position_integration && make) 
+	(cd test/Simulator/vehicle_angle && make) 
 	(cd test/Simulator/vehicle_velocity && make) 
-	#(cd test/Simulator/Simulator && make) 
 
-#	(cd test/System/brake_actuator && make) 
-#	(cd test/System/brake_pedal_sensor && make)
-#	(cd test/System/bus_controller && make)
-#	(cd test/System/controller && make)
-#	(cd test/System/direction_actuator && make)
-#	(cd test/System/fuel_actuator && make)
-#	(cd test/System/gas_pedal_sensor && make)
-#	(cd test/System/steering_wheel_sensor && make)
-#	(cd test/System/wheel_sensor && make)
-#	(cd test/System/System && make)
+	(cd test/System/brake_actuator && make) 
+	(cd test/System/brake_pedal_sensor && make)
+	(cd test/System/bus_controller && make)
+	(cd test/System/controller && make)
+	(cd test/System/direction_actuator && make)
+	(cd test/System/fuel_actuator && make)
+	(cd test/System/gas_pedal_sensor && make)
+	(cd test/System/steering_wheel_sensor && make)
+	(cd test/System/wheel_sensor && make)
 
 #RUN
 run:

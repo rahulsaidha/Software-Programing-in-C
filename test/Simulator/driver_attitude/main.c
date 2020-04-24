@@ -28,7 +28,6 @@ int main(){
     // Define Variables
 	VEHICLE_STATUS *vehicle;
     vehicle = (struct VEHICLE_STATUS*) malloc(sizeof(struct VEHICLE_STATUS));
-    double time_sampling = 0.01;
 
     // Open Log file
     FILE *fp;
@@ -52,11 +51,9 @@ int main(){
     char line[500];
     fgets(line,500,trjc); //Remove header from dataset
     
-    // take 100 iterations after the beginning
-    for (int i=0; i<=100;i++){
-        fgets(line,500,trjc);
-    } 
-    double total_time = 0.01*100.0;
+    // take 50 iterations after the beginning 
+    double total_time = 0.01*50.0;
+    double time_sampling = 0.01;
 
     /* Testcase 1 - The aim is moving forwards, the vehicle is stopped far behind it.
     Expected results: gas pedal increase, no move in steering wheel, brake pedal = 0.
@@ -64,6 +61,7 @@ int main(){
     vehicle->vehicle_position_X = 0.0;
     vehicle->vehicle_position_Y = 20.0;
     driver_attitude(time_sampling,total_time,trjc,vehicle);
+    total_time += time_sampling;
     vehicle->vehicle_position_X = 0.0;
     vehicle->vehicle_position_Y = 20.0;
     vehicle->vehicle_speed = 0.0;
@@ -71,6 +69,7 @@ int main(){
     vehicle->brake_pedal_pos = 0.0;
     vehicle->steering_wheel_pos = 0.0;
     driver_attitude(time_sampling,total_time,trjc,vehicle);
+    total_time += time_sampling;
     print_results(fp, 1, '>',0.0,vehicle->gas_pedal_pos,'=',0.0,vehicle->brake_pedal_pos,'=',0.0,vehicle->steering_wheel_pos);
 
     /* Testcase 2 - The aim is moving forwards, the vehicle is moving in the same direction far behind it.
@@ -79,6 +78,7 @@ int main(){
     vehicle->vehicle_position_X = 0.0;
     vehicle->vehicle_position_Y = 20.0;
     driver_attitude(time_sampling,total_time,trjc,vehicle);
+    total_time += time_sampling;
     vehicle->vehicle_position_X = 1.0;
     vehicle->vehicle_position_Y = 20.0;
     vehicle->vehicle_speed = 10.0;
@@ -86,6 +86,7 @@ int main(){
     vehicle->brake_pedal_pos = 0.0;
     vehicle->steering_wheel_pos = 0.0;
     driver_attitude(time_sampling,total_time,trjc,vehicle);    
+    total_time += time_sampling;
     print_results(fp, 2,'>',0.0,vehicle->gas_pedal_pos,'=',0.0,vehicle->brake_pedal_pos,'=',0.0,vehicle->steering_wheel_pos);
 
     /* Testcase 3 - The aim is moving forwards, the vehicle is moving in down direction far behind it.
@@ -94,6 +95,7 @@ int main(){
     vehicle->vehicle_position_X = 0.0;
     vehicle->vehicle_position_Y = 20.0;
     driver_attitude(time_sampling,total_time,trjc,vehicle);
+    total_time += time_sampling;
     vehicle->vehicle_position_X = 0.0;
     vehicle->vehicle_position_Y = 19.9;
     vehicle->vehicle_speed = 10.0;
@@ -101,6 +103,7 @@ int main(){
     vehicle->brake_pedal_pos = 0.0;
     vehicle->steering_wheel_pos = 0.0;
     driver_attitude(time_sampling,total_time,trjc,vehicle);
+    total_time += time_sampling;
     print_results(fp, 3,'=',0.0,vehicle->gas_pedal_pos,'=',0.0,vehicle->brake_pedal_pos,'>',0.0,vehicle->steering_wheel_pos);
 
     /* Testcase 4 - The aim is moving forwards, the vehicle is moving in up direction far behind it.
@@ -109,6 +112,7 @@ int main(){
     vehicle->vehicle_position_X = 0.0;
     vehicle->vehicle_position_Y = 20.0;
     driver_attitude(time_sampling,total_time,trjc,vehicle);
+    total_time += time_sampling;
     vehicle->vehicle_position_X = 0.0;
     vehicle->vehicle_position_Y = 20.1;
     vehicle->vehicle_speed = 10.0;
@@ -116,6 +120,7 @@ int main(){
     vehicle->brake_pedal_pos = 0.0;
     vehicle->steering_wheel_pos = 0.0;
     driver_attitude(time_sampling,total_time,trjc,vehicle);
+    total_time += time_sampling;
     print_results(fp, 4,'>',0.0,vehicle->gas_pedal_pos,'=',0.0,vehicle->brake_pedal_pos,'<',0.0,vehicle->steering_wheel_pos);
 
     /* Testcase 5 - The aim is moving forwards, the vehicle is moving in same direction close behind to it, but a little down.
@@ -125,6 +130,7 @@ int main(){
     vehicle->vehicle_position_X = 95.0;
     vehicle->vehicle_position_Y = 19.0;
     driver_attitude(time_sampling,total_time,trjc,vehicle);
+    total_time += time_sampling;
     vehicle->vehicle_position_X = 95.1;
     vehicle->vehicle_position_Y = 19.0;
     vehicle->vehicle_speed = 11.0;
@@ -132,6 +138,7 @@ int main(){
     vehicle->brake_pedal_pos = 0.0;
     vehicle->steering_wheel_pos = 0.0;
     driver_attitude(time_sampling,total_time,trjc,vehicle);
+    total_time += time_sampling;
     print_results(fp, 5,'<',10.0,vehicle->gas_pedal_pos,'=',0.0,vehicle->brake_pedal_pos,'>',0.0,vehicle->steering_wheel_pos);
 
     /* Testcase 6 - The aim is moving forwards, the vehicle is moving in same direction close behind to it, but a little up.
@@ -141,6 +148,7 @@ int main(){
     vehicle->vehicle_position_X = 95.0;
     vehicle->vehicle_position_Y = 21.0;
     driver_attitude(time_sampling,total_time,trjc,vehicle);
+    total_time += time_sampling;
     vehicle->vehicle_position_X = 95.1;
     vehicle->vehicle_position_Y = 21.0;
     vehicle->vehicle_speed = 13.0;
@@ -148,6 +156,7 @@ int main(){
     vehicle->brake_pedal_pos = 0.0;
     vehicle->steering_wheel_pos = 0.0;
     driver_attitude(time_sampling,total_time,trjc,vehicle);
+    total_time += time_sampling;
     print_results(fp, 6,'<',10.0,vehicle->gas_pedal_pos,'>',0.0,vehicle->brake_pedal_pos,'<',0.0,vehicle->steering_wheel_pos);
 
     /* Testcase 7 - The aim is moving forwards, the vehicle is moving in same direction close ahead to it, but a little up.
@@ -156,6 +165,7 @@ int main(){
     vehicle->vehicle_position_X = 105.0;
     vehicle->vehicle_position_Y = 21.0;
     driver_attitude(time_sampling,total_time,trjc,vehicle);
+    total_time += time_sampling;
     vehicle->vehicle_position_X = 105.1;
     vehicle->vehicle_position_Y = 21.0;
     vehicle->vehicle_speed = 10.0;
@@ -163,6 +173,7 @@ int main(){
     vehicle->brake_pedal_pos = 0.0;
     vehicle->steering_wheel_pos = 0.0;
     driver_attitude(time_sampling,total_time,trjc,vehicle);
+    total_time += time_sampling;
     print_results(fp, 7,'=',0.0,vehicle->gas_pedal_pos,'>',0.0,vehicle->brake_pedal_pos,'<',0.0,vehicle->steering_wheel_pos);
 
     /* Testcase 8 - The aim is moving forwards, the vehicle is moving in same direction far ahead to it, but a little up.
@@ -171,6 +182,7 @@ int main(){
     vehicle->vehicle_position_X = 150.0;
     vehicle->vehicle_position_Y = 21.0;
     driver_attitude(time_sampling,total_time,trjc,vehicle);
+    total_time += time_sampling;
     vehicle->vehicle_position_X = 150.1;
     vehicle->vehicle_position_Y = 21.0;
     vehicle->vehicle_speed = 10.0;
@@ -178,6 +190,7 @@ int main(){
     vehicle->brake_pedal_pos = 0.0;
     vehicle->steering_wheel_pos = 0.0;
     driver_attitude(time_sampling,total_time,trjc,vehicle);
+    total_time += time_sampling;
     print_results(fp, 8,'=',10.0,vehicle->gas_pedal_pos,'=',0.0,vehicle->brake_pedal_pos,'<',0.0,vehicle->steering_wheel_pos);
     
     /* Testcase 9 - The aim is moving forwards, the vehicle is moving in opposite direction close behind it.
@@ -186,6 +199,7 @@ int main(){
     vehicle->vehicle_position_X = 105.1;
     vehicle->vehicle_position_Y = 20.0;
     driver_attitude(time_sampling,total_time,trjc,vehicle);
+    total_time += time_sampling;
     vehicle->vehicle_position_X = 105.0;
     vehicle->vehicle_position_Y = 20.0;
     vehicle->vehicle_speed = 10.0;
@@ -193,14 +207,16 @@ int main(){
     vehicle->brake_pedal_pos = 0.0;
     vehicle->steering_wheel_pos = 0.0;
     driver_attitude(time_sampling,total_time,trjc,vehicle);
-    print_results(fp, 9,'=',0.0,vehicle->gas_pedal_pos,'=',0.0,vehicle->brake_pedal_pos,'=',0.0,vehicle->steering_wheel_pos);
+    total_time += time_sampling;
+    print_results(fp, 9,'<',10.0,vehicle->gas_pedal_pos,'=',0.0,vehicle->brake_pedal_pos,'=',0.0,vehicle->steering_wheel_pos);
 
     /* Testcase 10 - The aim is moving forwards, the vehicle is moving in opposite direction close ahead to it.
-    Expected results: gas pedal 0, steering wheel decrease, brake pedal irrelevant.
+    Expected results: gas pedal ~ 10, steering wheel decrease, brake pedal irrelevant.
     */
     vehicle->vehicle_position_X = 95.1;
     vehicle->vehicle_position_Y = 20.0;
     driver_attitude(time_sampling,total_time,trjc,vehicle);
+    total_time += time_sampling;
     vehicle->vehicle_position_X = 95.0;
     vehicle->vehicle_position_Y = 20.0;
     vehicle->vehicle_speed = 10.0;
@@ -208,7 +224,8 @@ int main(){
     vehicle->brake_pedal_pos = 0.0;
     vehicle->steering_wheel_pos = 0.0;
     driver_attitude(time_sampling,total_time,trjc,vehicle);
-    print_results(fp, 10,'=',10.0,vehicle->gas_pedal_pos,'=',0.0,vehicle->brake_pedal_pos,'<',0.0,vehicle->steering_wheel_pos);
+    total_time += time_sampling;
+    print_results(fp, 10,'~',10.0,vehicle->gas_pedal_pos,'=',0.0,vehicle->brake_pedal_pos,'<',0.0,vehicle->steering_wheel_pos);
 
     printf("End of the test\n");
     fclose(fp);

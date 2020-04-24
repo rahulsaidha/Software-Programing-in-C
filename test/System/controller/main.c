@@ -1,7 +1,27 @@
 #include "header.h"
+#include "main.h"
 #include <string.h>
+#include <stdio.h>
 
-void controller(struct VEHICLE_STATUS *vehicle_status);
+void print_results(FILE* fp,    int testcase, 
+                                char comparison_1,                                
+                                double expected_1,                                
+                                double result_1,
+                                char comparison_2,
+                                double expected_2,
+                                double result_2,
+                                char comparison_3,
+                                double expected_3,
+                                double result_3){
+    printf("\nTestcase %d\n", testcase);
+    printf("Expected: %c %f | Result: %f\n",comparison_1, expected_1, result_1);
+    printf("Expected: %c %f | Result: %f\n",comparison_2, expected_2, result_2); 
+    printf("Expected: %c %f | Result: %f\n",comparison_3, expected_3, result_3);
+    fprintf(fp,"\nTestcase %d\n", testcase);
+    fprintf(fp,"Expected: %c %f | Result: %f\n", comparison_1, expected_1, result_1);
+    fprintf(fp,"Expected: %c %f | Result: %f\n", comparison_2, expected_2, result_2); 
+    fprintf(fp,"Expected: %c %f | Result: %f\n", comparison_3, expected_3, result_3); 
+}
 
 int main(){
     // Define Variables
@@ -33,12 +53,21 @@ int main(){
     int testcase = 0;
     float expect = 0.0;
 
-    for (int i = 0; i<=50;i++){
-        //printf("%d\n", testcase);
+
+    /* Testcase 1 - signals from sensors are been followed to actuators */
+    for (int i = 0; i<=500;i++){
 	    controller(vehicle);
-        fprintf(fp,"Expected: %d | Result: %d\n", testcase, vehicle->Comm_bus_address);
-        fprintf(fp,"Expected: %f | Result: %f\n", expect, vehicle->Comm_bus_message);
+    	gas_pedal_sensor(vehicle);
+    	brake_pedal_sensor(vehicle);
+   	 	steering_wheel_sensor(vehicle);
+    	wheel_sensor(vehicle);
+    	direction_actuator(vehicle);
+    	fuel_actuator(vehicle);
+    	brake_actuator(vehicle);
     }
+    print_results(fp, 1,'=',vehicle->gas_pedal_pos,vehicle->fuel_actuator_pos,
+                        '=',vehicle->brake_pedal_pos,vehicle->brake_actuator_pos,
+                        '=',vehicle->steering_wheel_pos,vehicle->direction_actuator_pos);
     
 	printf("End of test\n");
     fclose(fp);

@@ -3,6 +3,7 @@
 */
 #include "header.h"
 #include <string.h>
+#include <stdio.h>
 
 void brake_actuator(struct VEHICLE_STATUS *vehicle_status);
 
@@ -12,15 +13,18 @@ void print_results(FILE* fp,    int testcase,
                                 double result_1,
                                 char comparison_2,
                                 double expected_2,
-                                double result_2){
+                                double result_2,
+                                char comparison_3,
+                                double expected_3,
+                                double result_3){
     printf("\nTestcase %d\n", testcase);
     printf("Expected: %c %f | Result: %f\n",comparison_1, expected_1, result_1);
     printf("Expected: %c %f | Result: %f\n",comparison_2, expected_2, result_2); 
     printf("Expected: %c %f | Result: %f\n",comparison_3, expected_3, result_3);
-    fprintf(fp,"\nTestcase %d\n");
+    fprintf(fp,"\nTestcase %d\n", testcase);
     fprintf(fp,"Expected: %c %f | Result: %f\n", comparison_1, expected_1, result_1);
     fprintf(fp,"Expected: %c %f | Result: %f\n", comparison_2, expected_2, result_2); 
-    fprintf(fp,"Expected: %c %f | Result: %f\n", comparison_3, expected_3, result_2); 
+    fprintf(fp,"Expected: %c %f | Result: %f\n", comparison_3, expected_3, result_3); 
 }
 
 int main(){
@@ -58,26 +62,25 @@ int main(){
     vehicle->Comm_bus_address = GAS_PEDAL_SSR_ADDRESS;
     vehicle->Comm_bus_message = 0;
     brake_actuator(vehicle);
-    print_results(fp, 2,'=',GAS_PEDAL_SSR_ADDRESS,vehicle->Comm_bus_address,
-        '=',message,vehicle->Comm_bus_message,
-        '=',0.0,0.0);
+    print_results(fp, 0,'=',GAS_PEDAL_SSR_ADDRESS,vehicle->Comm_bus_address,
+                        '=',message,vehicle->Comm_bus_message,
+                        '=',0.0,0.0);
 
     //Testcase 1: requesting to device and receiving confirmation
     vehicle->Comm_bus_message = 11.0;
     vehicle->Comm_bus_address = BRAKE_ACT_ADDRESS;
     brake_actuator(vehicle);
-    print_results(fp, 2,'~',CTRL_ADDRESS,vehicle->Comm_bus_address,
-         '=',11.0,vehicle->brake_actuator_pos,
-         '=',1.0,vehicle->Comm_bus_message);
+    print_results(fp, 1,'=',CTRL_ADDRESS,vehicle->Comm_bus_address,
+                        '=',11.0,vehicle->brake_actuator_pos,
+                        '=',1.0,vehicle->Comm_bus_message);
 
     //Testcase 2: requesting again with another value
     vehicle->Comm_bus_message = 12.0;
     vehicle->Comm_bus_address = BRAKE_ACT_ADDRESS;
-    brake_actuator(vehicle);
-    fprintf(fp,"\nTestcase 2\n");
-    fprintf(fp,"Expected: %d | Result: %d\n", CTRL_ADDRESS, vehicle->Comm_bus_address);
-    fprintf(fp,"Expected: %f | Result: %f\n", 12.0, vehicle->brake_actuator_pos);
-    fprintf(fp,"Expected: %f | Result: %f\n", 1.0, vehicle->Comm_bus_message);
+    brake_actuator(vehicle);    
+    print_results(fp, 2,'=',CTRL_ADDRESS,vehicle->Comm_bus_address,
+                        '=',12.0,vehicle->brake_actuator_pos,
+                        '=',1.0,vehicle->Comm_bus_message);
 
 	printf("End of test\n");
     fclose(fp);

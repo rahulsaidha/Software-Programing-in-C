@@ -38,7 +38,8 @@ int main(){
         k++;
 	}while(!feof(trjc));
 
-    printf("End of the test\n");
+    printf("End of the display test\n");
+    printf("Press any key to continue\n");
 	getchar();
     fclose(fp);
     fclose(trjc);

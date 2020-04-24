@@ -1,50 +1,50 @@
 
 Testcase - 1
-Expected: > 0.000000 | Result: 0.000306
+Expected: > 0.000000 | Result: 0.025156
 Expected: = 0.000000 | Result: 0.000000
 Expected: = 0.000000 | Result: -0.000000
 
 Testcase - 2
 Expected: > 0.000000 | Result: 0.000000
-Expected: = 0.000000 | Result: 0.040000
-Expected: = 0.000000 | Result: -20.000000
+Expected: = 0.000000 | Result: 0.000000
+Expected: = 0.000000 | Result: -0.000000
 
 Testcase - 3
+Expected: = 0.000000 | Result: 0.025391
 Expected: = 0.000000 | Result: 0.000000
-Expected: = 0.000000 | Result: 0.040000
-Expected: > 0.000000 | Result: -19.900000
+Expected: > 0.000000 | Result: 0.100000
 
 Testcase - 4
-Expected: > 0.000000 | Result: 0.000000
-Expected: = 0.000000 | Result: 0.040000
-Expected: < 0.000000 | Result: -20.100000
+Expected: > 0.000000 | Result: 0.025390
+Expected: = 0.000000 | Result: 0.000000
+Expected: < 0.000000 | Result: -0.100000
 
 Testcase - 5
-Expected: < 10.000000 | Result: 0.000000
-Expected: = 0.000000 | Result: 0.044000
-Expected: > 0.000000 | Result: -19.000000
+Expected: < 10.000000 | Result: 10.002670
+Expected: = 0.000000 | Result: 0.000000
+Expected: > 0.000000 | Result: 1.000000
 
 Testcase - 6
-Expected: < 10.000000 | Result: 0.000000
-Expected: > 0.000000 | Result: 0.052000
-Expected: < 0.000000 | Result: -21.000000
+Expected: < 10.000000 | Result: 10.002664
+Expected: > 0.000000 | Result: 0.000000
+Expected: < 0.000000 | Result: -1.000000
 
 Testcase - 7
-Expected: = 0.000000 | Result: 0.000000
-Expected: > 0.000000 | Result: 0.040000
-Expected: < 0.000000 | Result: -21.000000
+Expected: = 0.000000 | Result: 10.002958
+Expected: > 0.000000 | Result: 0.000000
+Expected: < 0.000000 | Result: -1.000000
 
 Testcase - 8
-Expected: = 10.000000 | Result: 0.000000
-Expected: = 0.000000 | Result: 0.040000
-Expected: < 0.000000 | Result: -21.000000
+Expected: = 10.000000 | Result: 10.004302
+Expected: = 0.000000 | Result: 0.000000
+Expected: < 0.000000 | Result: -1.000000
 
 Testcase - 9
+Expected: < 10.000000 | Result: 9.952943
 Expected: = 0.000000 | Result: 0.000000
-Expected: = 0.000000 | Result: 0.040000
-Expected: = 0.000000 | Result: -20.000000
+Expected: = 0.000000 | Result: 0.000000
 
 Testcase - 10
-Expected: = 10.000000 | Result: 0.000000
-Expected: = 0.000000 | Result: 0.040000
-Expected: < 0.000000 | Result: -20.000000
+Expected: ~ 10.000000 | Result: 9.952637
+Expected: = 0.000000 | Result: 0.000000
+Expected: < 0.000000 | Result: 0.000000

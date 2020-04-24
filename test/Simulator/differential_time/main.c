@@ -21,7 +21,7 @@ void print_results(FILE* fp,    int testcase,
     printf("\nTestcase %d\n", testcase);
     printf("Expected: %c %f | Result: %f\n",comparison_1, expected_1, result_1);
     //printf("Expected: %c %f | Result: %f\n",comparison_2, expected_2, result_2); 
-    fprintf(fp,"\nTestcase %d\n");
+    fprintf(fp,"\nTestcase %d\n", testcase);
     fprintf(fp,"Expected: %c %f | Result: %f\n",comparison_1, expected_1, result_1);
     //fprintf(fp,"Expected: %c %f | Result: %f\n",comparison_2, expected_2, result_2); 
 }

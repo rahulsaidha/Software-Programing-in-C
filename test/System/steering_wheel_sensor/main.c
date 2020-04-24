@@ -1,7 +1,23 @@
 #include "header.h"
 #include <string.h>
+#include <stdio.h>
 
 void steering_wheel_sensor(struct VEHICLE_STATUS *vehicle_status);
+
+void print_results(FILE* fp,    int testcase, 
+                                char comparison_1,                                
+                                double expected_1,                                
+                                double result_1,
+                                char comparison_2,
+                                double expected_2,
+                                double result_2){
+    printf("\nTestcase %d\n", testcase);
+    printf("Expected: %c %f | Result: %f\n",comparison_1, expected_1, result_1);
+    printf("Expected: %c %f | Result: %f\n",comparison_2, expected_2, result_2); 
+    fprintf(fp,"\nTestcase %d\n", testcase);
+    fprintf(fp,"Expected: %c %f | Result: %f\n", comparison_1, expected_1, result_1);
+    fprintf(fp,"Expected: %c %f | Result: %f\n", comparison_2, expected_2, result_2);   
+}
 
 int main(){
     // Define Variables
@@ -37,24 +53,21 @@ int main(){
     message = 0;
     vehicle->Comm_bus_address = GAS_PEDAL_SSR_ADDRESS;
     steering_wheel_sensor(vehicle);
-    fprintf(fp,"\nTestcase 0\n");
-    fprintf(fp,"Expected: %d | Result: %d\n", GAS_PEDAL_SSR_ADDRESS, vehicle->Comm_bus_address);
-    fprintf(fp,"Expected: %f | Result: %f\n", message, vehicle->Comm_bus_message);
+    print_results(fp,0,'=',GAS_PEDAL_SSR_ADDRESS,vehicle->Comm_bus_address,
+                       '=',message,vehicle->Comm_bus_message);
 
     //Testcase 1: requesting and receiving from device
     vehicle->Comm_bus_address = STEERING_SSR_ADDRESS;
     steering_wheel_sensor(vehicle);
-    fprintf(fp,"\nTestcase 1\n");
-    fprintf(fp,"Expected: %d | Result: %d\n", CTRL_ADDRESS, vehicle->Comm_bus_address);
-    fprintf(fp,"Expected: %f | Result: %f\n", vehicle->steering_wheel_pos, vehicle->Comm_bus_message);
+    print_results(fp,1,'=',CTRL_ADDRESS,vehicle->Comm_bus_address,
+                       '=',vehicle->steering_wheel_pos,vehicle->Comm_bus_message);
 
     //Testcase 2: requesting again with another value
     vehicle->steering_wheel_pos = 10;
     vehicle->Comm_bus_address = STEERING_SSR_ADDRESS;
     steering_wheel_sensor(vehicle);
-    fprintf(fp,"\nTestcase 2\n");
-    fprintf(fp,"Expected: %d | Result: %d\n", CTRL_ADDRESS, vehicle->Comm_bus_address);
-    fprintf(fp,"Expected: %f | Result: %f\n", vehicle->steering_wheel_pos, vehicle->Comm_bus_message);
+    print_results(fp,2,'=',CTRL_ADDRESS,vehicle->Comm_bus_address,
+                       '=',vehicle->steering_wheel_pos,vehicle->Comm_bus_message);
 
 	printf("End of test\n");
     fclose(fp);
